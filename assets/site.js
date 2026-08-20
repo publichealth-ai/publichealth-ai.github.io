@@ -40,3 +40,31 @@ if ("IntersectionObserver" in window) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+const filterButtons = document.querySelectorAll("[data-case-filter]");
+const caseCards = document.querySelectorAll("[data-case-group]");
+const filterCount = document.getElementById("filter-count");
+
+if (filterButtons.length && caseCards.length) {
+  const applyFilter = (filter) => {
+    let visible = 0;
+
+    caseCards.forEach((card) => {
+      const show = filter === "all" || card.dataset.caseGroup === filter;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+
+    filterButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.caseFilter === filter));
+    });
+
+    if (filterCount) {
+      filterCount.textContent = `${visible} ${visible === 1 ? "use case" : "use cases"}`;
+    }
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => applyFilter(button.dataset.caseFilter));
+  });
+}
