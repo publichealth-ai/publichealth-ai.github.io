@@ -242,7 +242,7 @@ const loadD3 = () => {
 const enhanceFlow = (flow, chartIndex) => {
   const data = Array.from(flow.querySelectorAll(".flow-node")).map((node, index) => ({
     index,
-    step: node.querySelector("span")?.textContent.trim() || String(index + 1),
+    step: node.querySelector("span")?.textContent.trim() || "",
     title: node.querySelector("strong")?.textContent.trim() || "",
     detail: node.querySelector("p")?.textContent.trim() || "",
     accelerator: node.dataset.accelerator === "true"
@@ -341,7 +341,7 @@ const enhanceFlow = (flow, chartIndex) => {
       .append("text")
       .attr("class", "dynamic-flow-title")
       .attr("x", 14)
-      .attr("y", 45)
+      .attr("y", (item) => (item.step ? 45 : 27))
       .text((item) => item.title);
 
     nodes
@@ -356,9 +356,9 @@ const enhanceFlow = (flow, chartIndex) => {
     nodes
       .append("foreignObject")
       .attr("x", 14)
-      .attr("y", 57)
+      .attr("y", (item) => (item.step ? 57 : 39))
       .attr("width", nodeWidth - 28)
-      .attr("height", nodeHeight - 65)
+      .attr("height", (item) => nodeHeight - (item.step ? 65 : 47))
       .append("xhtml:div")
       .attr("class", "dynamic-flow-copy")
       .text((item) => item.detail);
