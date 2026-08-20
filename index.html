@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js" defer></script>
+  <script src="/assets/site.js?v=2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,7 +48,7 @@
     <section class="section" id="use-cases">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="eyebrow">Seven use cases</p>
+          <p class="eyebrow">Ten use cases</p>
           <h2>Start with the workflow, not the technology.</h2>
           <p>Each page connects a public health outcome to the data and operating process needed to apply it responsibly.</p>
         </div>
@@ -59,22 +59,22 @@
           <button class="filter-button" type="button" data-case-filter="environmental-health" aria-pressed="false">Environmental health</button>
           <button class="filter-button" type="button" data-case-filter="community-health" aria-pressed="false">Community health</button>
           <button class="filter-button" type="button" data-case-filter="preparedness-response" aria-pressed="false">Preparedness &amp; response</button>
-          <span class="filter-count" id="filter-count" aria-live="polite">7 use cases</span>
+          <span class="filter-count" id="filter-count" aria-live="polite">10 use cases</span>
         </div>
         <div class="case-grid">
           <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/document-intake.html">
             <span class="case-number">01 · Disease surveillance</span>
-            <h3>Case and laboratory document intake</h3>
-            <p>Classify incoming reports, extract surveillance fields, and route uncertain values for review.</p>
+            <h3>eCR, ELR, and surveillance intake</h3>
+            <p>Route structured eCR and ELR, then extract fields from fax, PDF, and other surveillance intake formats.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance environmental-health community-health" href="/use-cases/knowledge-assistant.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/knowledge-assistant.html">
             <span class="case-number">02 · Disease surveillance</span>
             <h3>Epidemiology knowledge assistant</h3>
             <p>Find cited answers across case definitions, protocols, code sets, and program guidance.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="environmental-health community-health preparedness-response" href="/use-cases/inquiry-response.html">
+          <a class="case-card reveal" data-case-group="environmental-health community-health" href="/use-cases/inquiry-response.html">
             <span class="case-number">03 · Community health</span>
             <h3>Public inquiry response assistant</h3>
             <p>Give contact-center and program staff consistent, citation-backed response drafts.</p>
@@ -86,22 +86,40 @@
             <p>Help residents find clinics, testing, vaccination, alerts, and local health services.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance community-health preparedness-response" href="/use-cases/emergency-coordination.html">
+          <a class="case-card reveal" data-case-group="preparedness-response" href="/use-cases/emergency-coordination.html">
             <span class="case-number">05 · Preparedness &amp; response</span>
             <h3>Public health emergency coordination</h3>
             <p>Draft coordinated plans across surveillance, clinical, logistics, and partner teams.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance environmental-health preparedness-response" href="/use-cases/knowledge-hub.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/knowledge-hub.html">
             <span class="case-number">06 · Disease surveillance</span>
             <h3>Cross-agency surveillance knowledge hub</h3>
             <p>Search partner guidance while enforcing the permissions attached to each source.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance environmental-health community-health preparedness-response" href="/use-cases/protocol-review.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/protocol-review.html">
             <span class="case-number">07 · Cross-program governance</span>
             <h3>Surveillance policy and protocol review</h3>
             <p>Find missing or inconsistent requirements before formal program and governance review.</p>
+            <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </a>
+          <a class="case-card reveal" data-case-group="environmental-health" href="/use-cases/environmental-inspection.html">
+            <span class="case-number">08 · Environmental health</span>
+            <h3>Environmental health field inspection assistant</h3>
+            <p>Support swimming-pool and other facility inspections with guided checklists, evidence capture, and cited requirements.</p>
+            <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </a>
+          <a class="case-card reveal" data-case-group="environmental-health" href="/use-cases/food-facility-knowledge.html">
+            <span class="case-number">09 · Environmental health</span>
+            <h3>Food facility investigation knowledge assistant</h3>
+            <p>Bring regulations, facility history, HACCP plans, sampling guidance, and traceability procedures into one cited investigation view.</p>
+            <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </a>
+          <a class="case-card reveal" data-case-group="preparedness-response" href="/use-cases/emergency-policy-assistant.html">
+            <span class="case-number">10 · Preparedness &amp; response</span>
+            <h3>Emergency knowledge and policy assistant</h3>
+            <p>Find plans, authorities, job action sheets, agreements, and policy constraints during activation and planning.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
         </div>
@@ -112,8 +130,8 @@
       <div class="shell">
         <div class="section-heading reveal">
           <p class="eyebrow">Additional resources</p>
-          <h2>Related Microsoft customer stories.</h2>
-          <p>Examples of organizations applying related technology patterns in healthcare, public service, emergency response, and information governance.</p>
+          <h2>Government public health Data &amp; AI examples.</h2>
+          <p>Public-sector examples aligned only to disease surveillance, environmental health, community health, and preparedness and response.</p>
         </div>
         <div class="stories-note reveal">
           <strong>Independent examples:</strong> The customers below may not use the accelerators above;
@@ -122,35 +140,24 @@
         <div class="story-grid">
           <article class="story-card reveal">
             <div class="story-image">
-              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/20380_eClinicalWorks%20Story%20Thumbnail?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="eClinicalWorks customer story">
+              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Zammoai%20Header%20Image?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Montgomery County Government vaccination customer story">
             </div>
             <div class="story-body">
-              <p class="story-org">eClinicalWorks · Document intake</p>
-              <h3>Reducing healthcare paperwork with Azure AI Document Intelligence</h3>
-              <p>Related to document classification, field extraction, and human validation at scale.</p>
-              <a class="text-link" href="https://www.microsoft.com/en/customers/story/20380-eclinicalworks-azure-ai-services" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
+              <p class="story-org">Montgomery County Government · Community health · Azure AI</p>
+              <h3>Supporting a successful COVID-19 vaccination program with Azure AI</h3>
+              <p>Government use of conversational AI and analytics to support public vaccination information and access.</p>
+              <a class="text-link" href="https://www.microsoft.com/en/customers/story/1354241398257818859-zammo-ai-partner-professional-services-cognitive-services" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
             </div>
           </article>
           <article class="story-card reveal">
             <div class="story-image">
-              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/22488_Beth%20Israel%20Lahey%20Health%20Story%20Thumbnail?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Beth Israel Lahey Health customer story">
+              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/New%20York%20City%20Department%20of%20Environmental%20Protection%20Header%20Image-1?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="NYC Department of Environmental Protection customer story">
             </div>
             <div class="story-body">
-              <p class="story-org">Beth Israel Lahey Health · Knowledge retrieval</p>
-              <h3>Improving policy and procedure search with Azure AI services</h3>
-              <p>Related to natural-language retrieval across governed policies, procedures, and guidelines.</p>
-              <a class="text-link" href="https://www.microsoft.com/en/customers/story/22488-beth-israel-lahey-health-azure-open-ai-service" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
-            </div>
-          </article>
-          <article class="story-card reveal">
-            <div class="story-image">
-              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Ville%20de%20Kelowna%20Story%20Thumbnail?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="City of Kelowna customer story">
-            </div>
-            <div class="story-body">
-              <p class="story-org">City of Kelowna · Constituent service</p>
-              <h3>Increasing and speeding access to city services with Azure AI</h3>
-              <p>Related to conversational service access using current data and existing documentation.</p>
-              <a class="text-link" href="https://www.microsoft.com/en/customers/story/1641166525350342888-city-of-kelowna-government-azure-open-ai-service" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
+              <p class="story-org">NYC Environmental Protection · Environmental health · Data platform</p>
+              <h3>NYC Department of Environmental Protection taps Dynamics 365 for transformation</h3>
+              <p>Government modernization of environmental regulatory, case-management, and operational data workflows.</p>
+              <a class="text-link" href="https://www.microsoft.com/en/customers/story/1562106992085583231-new-york-city-department-of-environmental-protection-government-dynamics-365" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
             </div>
           </article>
           <article class="story-card reveal">
@@ -158,9 +165,9 @@
               <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/City%20of%20Houston%20Fire%20Department%20Story%20Thumbnail?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="City of Houston Fire Department customer story">
             </div>
             <div class="story-body">
-              <p class="story-org">Houston Fire Department · Emergency response</p>
+              <p class="story-org">Houston Fire Department · Preparedness &amp; response · Analytics</p>
               <h3>Improving emergency response with Teams and Power BI</h3>
-              <p>Related to remote triage, appropriate service routing, and near-real-time operational analysis.</p>
+              <p>Government emergency-response analytics for remote triage, service routing, and near-real-time operations.</p>
               <a class="text-link" href="https://www.microsoft.com/en/customers/story/1637933665239242560-houston-government-power-bi-en-united-states" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
             </div>
           </article>
@@ -169,10 +176,54 @@
               <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Integrated%20Health%20Information%20Systems%20IHiS%20Story%20Thumbnail?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Integrated Health Information Systems customer story">
             </div>
             <div class="story-body">
-              <p class="story-org">IHiS · Connected health operations</p>
+              <p class="story-org">IHiS · Community health · Azure data platform</p>
               <h3>Supporting remote health monitoring with Health Discovery+ on Azure</h3>
-              <p>Related to shared monitoring workflows, threshold alerts, and aligned clinical protocols.</p>
+              <p>Singapore’s national healthtech agency using Azure data and monitoring workflows across public health services.</p>
               <a class="text-link" href="https://www.microsoft.com/en/customers/story/1574352454896056138-integrated-health-information-systems-national-government-azure-en-singapore" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <div class="story-image">
+              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Provincial%20Health%20Services%20Authority%20Header%20Image?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Provincial Health Services Authority customer story">
+            </div>
+            <div class="story-body">
+              <p class="story-org">Provincial Health Services Authority · Community health · Data analytics</p>
+              <h3>Improving health data access and insights with Azure</h3>
+              <p>Public health authority use of Azure, Microsoft Purview, and Power BI for governed data access and insight.</p>
+              <a class="text-link" href="https://www.microsoft.com/en/customers/story/1670129125460348390-provincial-health-services-authority-healthcare-azure-en-canada" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <div class="story-image">
+              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Our%20Dorset%20Integrated%20Care%20System%20Header%20Image?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Our Dorset Integrated Care System customer story">
+            </div>
+            <div class="story-body">
+              <p class="story-org">Our Dorset Integrated Care System · Community health · Regional analytics</p>
+              <h3>The lasting legacy of a transition from data to wisdom</h3>
+              <p>Public-sector regional health data integration and population analytics with Data Factory, Synapse, and Power BI.</p>
+              <a class="text-link" href="https://www.microsoft.com/en/customers/story/825520-our-dorset" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <div class="story-image">
+              <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/24698_Whakarongorau%20Aotearoa%20Header%20Image?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Whakarongorau Aotearoa customer story">
+            </div>
+            <div class="story-body">
+              <p class="story-org">Whakarongorau Aotearoa · Community health · Microsoft Fabric</p>
+              <h3>Enhancing telehealth accessibility with Microsoft Fabric</h3>
+              <p>Government health-service data and operational analytics using Microsoft Fabric to improve accessible digital delivery.</p>
+              <a class="text-link" href="https://www.microsoft.com/en/customers/story/24698-whakarongorau-aotearoa-microsoft-fabric" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <div class="story-image">
+              <img src="https://news.microsoft.com/wp-content/uploads/prod/sites/549/2020/06/azure-covid-19-hospital-emergency-response-solution_1920x1108.jpg" alt="Washington Healthcare Emergency and Logistics Tracking Hub dashboard">
+            </div>
+            <div class="story-body">
+              <p class="story-org">Washington State Department of Health · Disease surveillance &amp; preparedness · Azure data platform</p>
+              <h3>Growing Azure’s capacity during the COVID-19 pandemic</h3>
+              <p>WA HEALTH centralized hospital capacity, staffing, equipment, supply, and COVID-19 response data on Azure.</p>
+              <a class="text-link" href="https://news.microsoft.com/source/features/innovation/azure-covid-19/" target="_blank" rel="noopener noreferrer">Read Microsoft article <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
             </div>
           </article>
           <article class="story-card reveal">
@@ -180,9 +231,9 @@
               <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Food%20Standards%20Agency%20FSA%20Story%20Thumbnail?wid=800&amp;hei=450&amp;fit=crop&amp;qlt=85" alt="Food Standards Agency customer story">
             </div>
             <div class="story-body">
-              <p class="story-org">Food Standards Agency · Information governance</p>
+              <p class="story-org">Food Standards Agency · Environmental health · Data governance</p>
               <h3>Governing records and retention with Microsoft Purview</h3>
-              <p>Related to governed access, document classification, retention, and cross-authority collaboration.</p>
+              <p>Government food-safety data governance using Purview for records, classification, retention, and cross-authority access.</p>
               <a class="text-link" href="https://www.microsoft.com/en/customers/story/1511233412897677008-food-standards-agency-government-microsoft-purview" target="_blank" rel="noopener noreferrer">Read official story <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a>
             </div>
           </article>
@@ -191,14 +242,6 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-row">
-      <span>Public Health AI Use Cases</span>
-      <div class="footer-links">
-        <a href="https://www.microsoft.com/en-us/ai/government/public-health-social-services" target="_blank" rel="noopener noreferrer">Microsoft public health</a>
-        <a href="https://azure.github.io/ai-app-templates/?tags=azureopenai" target="_blank" rel="noopener noreferrer">Azure AI App Templates</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
 </body>
 </html>
