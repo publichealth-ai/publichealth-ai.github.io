@@ -345,7 +345,7 @@ button:focus-visible {
   background-color: var(--cp-bg-elevated);
   background-image:
     linear-gradient(var(--cp-sheen), var(--cp-sheen)),
-    url("https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Background-Hero-public-health-service-1600x616?wid=2400&hei=900&fit=crop&qlt=90");
+    url("https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Hero-public-health-service-688x528?wid=2400&hei=900&fit=crop&qlt=90");
   background-position: center;
   background-size: cover;
 }
@@ -416,6 +416,10 @@ h1 {
   color: var(--cp-text-muted);
   font-size: clamp(18px, 2vw, 22px);
   text-align: center;
+}
+
+.hero h1 {
+  letter-spacing: 0;
 }
 
 .hero-actions,
@@ -1045,7 +1049,7 @@ h1 {
 
 .single-case-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
   gap: 56px;
   align-items: end;
   padding: clamp(32px, 5vw, 72px);
@@ -1065,12 +1069,38 @@ h1 {
 }
 
 .template-card {
-  padding: 22px;
-  border-top: 4px solid var(--cp-link);
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-top: 5px solid var(--cp-link);
   background: var(--cp-bg-elevated);
+  box-shadow: var(--cp-shadow);
 }
 
-.template-card span {
+.template-preview {
+  height: 190px;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--cp-border);
+  background: var(--cp-surface);
+}
+
+.template-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.template-preview.contain img {
+  object-fit: contain;
+  padding: 10px;
+}
+
+.template-card-body {
+  padding: 22px;
+}
+
+.template-card-body > span {
   display: block;
   color: var(--cp-text-soft);
   font-size: 11px;
@@ -1079,21 +1109,63 @@ h1 {
   text-transform: uppercase;
 }
 
-.template-card strong {
+.template-card-body > strong {
   display: block;
   margin: 8px 0 10px;
   font-size: 18px;
   line-height: 1.22;
 }
 
-.template-card p {
+.template-card-body > p {
   margin: 0;
   color: var(--cp-text-muted);
   font-size: 13px;
 }
 
-.template-card .text-link {
-  padding-top: 16px;
+.template-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.template-button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border: 2px solid var(--cp-accent);
+  border-radius: 0.625rem;
+  background: var(--cp-accent);
+  color: var(--cp-accent-fg);
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.template-button:hover {
+  background: var(--cp-accent-hover);
+  transform: translateY(-2px);
+}
+
+.template-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.template-catalog-link {
+  color: var(--cp-link);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-underline-offset: 3px;
 }
 
 .single-case-content {
@@ -1145,16 +1217,20 @@ h1 {
 .friendly-flow {
   display: flex;
   align-items: stretch;
-  padding: 34px 0;
+  padding: 26px 0;
   border-bottom: 1px solid var(--cp-border);
 }
 
 .flow-node {
   flex: 1 1 0;
   min-width: 0;
-  padding: 18px;
-  border: 1px solid var(--cp-border);
-  background: var(--cp-bg-elevated);
+  min-height: 76px;
+  padding: 13px;
+  border: 0;
+  border-top: 3px solid var(--cp-border);
+  background: var(--cp-surface);
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
 .flow-node span {
@@ -1174,14 +1250,34 @@ h1 {
 
 .flow-node p {
   margin: 0;
+  max-height: 0;
+  overflow: hidden;
   color: var(--cp-text-muted);
   font-size: 12px;
+  opacity: 0;
+  transition: max-height 180ms ease, opacity 180ms ease;
+}
+
+.flow-node:hover,
+.flow-node:focus,
+.flow-node.is-active {
+  border-color: var(--cp-link);
+  background: var(--cp-bg-elevated);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.flow-node:hover p,
+.flow-node:focus p,
+.flow-node.is-active p {
+  max-height: 72px;
+  opacity: 1;
 }
 
 .flow-arrow {
   position: relative;
-  width: 38px;
-  flex: 0 0 38px;
+  width: 26px;
+  flex: 0 0 26px;
   align-self: center;
   height: 16px;
 }
@@ -1191,7 +1287,7 @@ h1 {
   position: absolute;
   top: 7px;
   left: 4px;
-  width: 26px;
+  width: 16px;
   height: 1px;
   background: var(--cp-link);
 }
@@ -1210,8 +1306,8 @@ h1 {
 
 .workflow-application {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 56px;
+  grid-template-columns: 1fr;
+  gap: 0;
   padding: 36px 0;
   border-bottom: 1px solid var(--cp-border);
 }
@@ -1230,6 +1326,28 @@ h1 {
 
 .workflow-application p + p {
   margin-top: 12px;
+}
+
+.reflection-panel {
+  padding: 28px;
+  border-top: 1px solid var(--cp-border);
+  background: var(--cp-bg-elevated);
+}
+
+.reflection-panel h2 {
+  margin: 0 0 14px;
+  color: var(--cp-accent);
+  font-size: 20px;
+}
+
+.reflection-panel .compact-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 28px;
+}
+
+.reflection-panel .compact-list li + li {
+  margin-top: 0;
 }
 
 .compact-workflow {
@@ -1565,6 +1683,10 @@ h1 {
     gap: 26px;
   }
 
+  .reflection-panel .compact-list {
+    grid-template-columns: 1fr;
+  }
+
   .compact-workflow {
     grid-template-columns: 1fr;
     gap: 0;
@@ -1579,6 +1701,10 @@ h1 {
 
   .compact-step:last-child {
     border-bottom: 0;
+  }
+
+  .template-preview {
+    height: 160px;
   }
 }
 
