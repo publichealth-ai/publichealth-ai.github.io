@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A permission-aware knowledge and policy assistant for public health emergency preparedness and response.">
+  <link rel="icon" href="data:,">
+  <title>Emergency Knowledge and Policy Assistant | Public Health AI</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body class="detail-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="shell nav-row"><nav class="case-nav" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Emergency knowledge and policy assistant</span></nav></div></header>
+  <main id="main">
+    <section class="single-case">
+      <div class="shell">
+        <article class="single-case-panel">
+          <header class="single-case-header">
+            <div><p class="detail-kicker">PREPAREDNESS &amp; RESPONSE</p><h1>Emergency knowledge and policy assistant</h1><p class="single-case-summary">Find the plans, authorities, job action sheets, agreements, and policy constraints that shape a public health emergency response.</p></div>
+          </header>
+          <div class="single-case-content">
+            <div class="brief-row">
+              <div class="brief-block scenario-hook"><h2>Imagine when a new respiratory threat triggers statewide activation.</h2><p>The response organization must determine which plan applies, who has authority, what local partners are responsible for, which agreements enable staffing and supplies, and what policies constrain data sharing and public communication before the first operational period begins.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Emergency operations plans, annexes, continuity plans, job action sheets, legal authorities, mutual-aid agreements, communication protocols, procurement rules, data-use agreements, and after-action improvements are spread across agencies and repositories. Access and versions often change between exercises and real events.</p><p>The business need is a permission-aware, cited view of the policy and plan context for a decision—not an automated command recommendation.</p></div>
+            </div>
+            <div class="friendly-flow" aria-label="Emergency knowledge and policy flow">
+              <div class="flow-node"><span>01</span><strong>Frame</strong><p>Event, operational period, objective, and jurisdiction</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Authorize</strong><p>User role and plan or policy access</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>03</span><strong>Retrieve</strong><p>Plans, authorities, agreements, and job actions</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Compare</strong><p>Responsibilities, constraints, conflicts, and gaps</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Brief</strong><p>Cited options and questions for command review</p></div>
+            </div>
+            <div class="accelerator-stage">
+              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it to retrieve authorized plan and policy context during activation.</h2><p>The SharePoint knowledge template fits after organizational sign-in and event framing. It searches authorized emergency plans, annexes, agreements, policies, and job action sheets and produces a cited answer or briefing note while respecting source access controls.</p><p><strong>Reuse:</strong> SharePoint semantic retrieval, inherited permissions, agent synthesis, citations, and report generation.</p><p><strong>Adapt:</strong> emergency document taxonomy, operational-period prompts, plan owners, legal and policy metadata, partner groups, briefing format, and escalation to command or counsel.</p><p><strong>Keep outside:</strong> command authority, policy waiver, public warning approval, resource deployment, legal interpretation, and irreversible operational decisions.</p></div>
+              <aside class="template-card"><figure class="template-preview contain"><img src="https://raw.githubusercontent.com/microsoft/app-with-sharepoint-knowledge/main/docs/agent_with_sp_knowledge_output.png" alt="SharePoint knowledge and actions application preview"></figure><div class="template-card-body"><span>Related Azure AI App Template</span><strong>AI application with SharePoint knowledge and actions</strong><p>Uses SharePoint semantic retrieval and built-in access controls for grounded agent responses.</p><div class="template-actions"><a class="template-button" href="https://github.com/microsoft/app-with-sharepoint-knowledge" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/microsoft/app-with-sharepoint-knowledge/" target="_blank" rel="noopener noreferrer">View catalog entry</a></div></div></aside>
+            </div>
+            <div class="outcome-section">
+              <div><h2>Potential outcomes</h2><ul class="outcome-list"><li>Faster orientation to applicable plans, authorities, and partner roles.</li><li>More consistent use of cited policy during operational planning.</li><li>Earlier identification of conflicting responsibilities, expired agreements, and missing decisions.</li></ul></div>
+              <div><h2>How this addresses the challenge</h2><p>Permission-aware retrieval connects the event and jurisdiction to current source documents without creating an uncontrolled emergency-plan copy. Citations, ownership, and effective dates make uncertainty visible and give command, counsel, and program leads a shared starting point.</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><ul class="compact-list"><li>Record the event type, operational period, objectives, affected jurisdictions, and decisions due at activation.</li><li>Retrieve the emergency operations plan, public health annex, continuity plan, job action sheets, agreements, authorities, data-sharing rules, communication policy, and unresolved after-action items.</li><li>Use cited evidence to confirm roles, approvals, conflicts, and owners while approved decisions remain in incident logs and action plans rather than the assistant.</li></ul></div>
+            </div>
+            <div class="reflection-panel"><h2>Reflection questions</h2><ul class="compact-list"><li>Which plans, annexes, agreements, and authorities are operationally binding for each event and jurisdiction, and how will their current version be verified during activation?</li><li>Which documents can be broadly searchable, which require role-based access, and what restricted operational or legal information must remain outside the shared index?</li><li>How will the workflow route conflicting plan language, expired agreements, policy exceptions, and unresolved authorities to command, counsel, or the responsible agency before action?</li></ul></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
+</body>
+</html>

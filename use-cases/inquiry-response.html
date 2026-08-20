@@ -19,11 +19,7 @@
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row">
-    <a class="brand" href="/" aria-label="Return to AI patterns for public health work"><span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>AI patterns for public health work.</span></a>
-    <nav class="desktop-nav" aria-label="Primary navigation"><a href="/#use-cases">Use cases</a><a href="/#stories">Customer stories</a><a href="https://azure.github.io/ai-app-templates/?tags=azureopenai" target="_blank" rel="noopener noreferrer">Azure AI templates</a></nav>
-    <button class="menu-button" id="open-menu" type="button" aria-haspopup="dialog" aria-controls="site-menu"><span>Explore</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
-  </div></header>
+  <header class="site-header"><div class="shell nav-row"><nav class="case-nav" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Public inquiry response assistant</span></nav></div></header>
   <dialog class="site-menu" id="site-menu" aria-label="Site navigation"><div class="menu-shell">
     <div class="menu-top"><span class="menu-title">Public Health AI</span><button class="menu-close" id="close-menu" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button></div>
     <div class="menu-grid"><a class="menu-home" href="/">Home</a><nav class="menu-links" aria-label="Use cases"><a href="/use-cases/document-intake.html">Case and laboratory document intake</a><a href="/use-cases/knowledge-assistant.html">Epidemiology knowledge assistant</a><a href="/use-cases/inquiry-response.html">Public inquiry response assistant</a><a href="/use-cases/service-navigator.html">Public health service navigator</a><a href="/use-cases/emergency-coordination.html">Public health emergency coordination</a><a href="/use-cases/knowledge-hub.html">Cross-agency surveillance knowledge hub</a><a href="/use-cases/protocol-review.html">Surveillance policy and protocol review</a></nav></div>
@@ -31,10 +27,9 @@
   <main id="main">
     <section class="single-case">
       <div class="shell">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Use case 03</span></nav>
         <article class="single-case-panel">
           <header class="single-case-header">
-            <div><p class="detail-kicker">USE CASE 03 · ENVIRONMENTAL HEALTH · COMMUNITY HEALTH · PREPAREDNESS &amp; RESPONSE</p><h1>Public inquiry response assistant</h1><p class="single-case-summary">Help contact-center and program staff prepare consistent answers from approved public health content, with citations and clear escalation.</p></div>
+            <div><p class="detail-kicker">ENVIRONMENTAL HEALTH · COMMUNITY HEALTH · PREPAREDNESS &amp; RESPONSE</p><h1>Public inquiry response assistant</h1><p class="single-case-summary">Help contact-center and program staff prepare consistent answers from approved public health content, with citations and clear escalation.</p></div>
           </header>
           <div class="single-case-content">
             <div class="brief-row">
@@ -44,12 +39,12 @@
             <div class="friendly-flow" aria-label="Public inquiry response flow">
               <div class="flow-node"><span>01</span><strong>Receive</strong><p>Phone, chat, email, or staff intake form</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>02</span><strong>Triage</strong><p>Topic, urgency, location, and language</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>03</span><strong>Retrieve</strong><p>Approved advisory, FAQ, and service data</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>03</span><strong>Retrieve</strong><p>Approved advisory, FAQ, and service data</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>04</span><strong>Review</strong><p>Specialist verifies the cited draft</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>05</span><strong>Respond</strong><p>Answer, refer, or escalate to a clinician</p></div>
             </div>
             <div class="accelerator-stage">
-              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it for intent, approved-answer retrieval, and the first response draft.</h2><p>The conversational-agent accelerator fits after an inquiry enters the contact-center workflow. It classifies the question, retrieves the approved advisory or FAQ, and prepares a cited draft. Existing escalation rules and staff review determine whether the interaction is answered, referred, or sent to an urgent channel.</p></div>
+              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it for intent, approved-answer retrieval, and the first response draft.</h2><p>The conversational-agent accelerator fits after an inquiry enters the contact-center workflow. It classifies the question, retrieves the approved advisory or FAQ, and prepares a cited draft. Existing escalation rules and staff review determine whether the interaction is answered, referred, or sent to an urgent channel.</p><p><strong>Reuse:</strong> conversational language understanding, custom question answering, RAG retrieval, citations, and the chat experience.</p><p><strong>Adapt:</strong> public health intents, urgency triggers, approved multilingual content, contact-center integration, service lookups, and referral destinations.</p><p><strong>Keep outside:</strong> clinical triage, emergency dispatch, case creation, and any response that requires qualified human judgment.</p></div>
               <aside class="template-card"><figure class="template-preview contain"><img src="https://azure.github.io/ai-app-templates/templates/images/Azure-Language-OpenAI-Conversational-Agent-Accelerator-image.png" alt="Azure Language OpenAI Conversational Agent application preview"></figure><div class="template-card-body"><span>Related Azure AI App Template</span><strong>Azure Language OpenAI Conversational Agent Accelerator</strong><p>Combines conversational understanding and question answering with an Azure OpenAI RAG experience.</p><div class="template-actions"><a class="template-button" href="https://github.com/Azure-Samples/azure-language-openai-conversational-agent-accelerator" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/azure-samples/azure-language-openai-conversational-agent-accelerator/" target="_blank" rel="noopener noreferrer">View catalog entry</a></div></div></aside>
             </div>
             <div class="outcome-section">
@@ -57,7 +52,7 @@
               <div><h2>How this addresses the challenge</h2><p>The workflow separates stable approved language from live service data, exposes the source date, and keeps staff review in the loop. Urgency and scope rules prevent a polished response from bypassing clinical or emergency escalation.</p></div>
             </div>
             <div class="workflow-application">
-              <div><h2>How this applies across the broader workflow</h2><p>The assistant uses the exposure notice, approved outbreak FAQ, current health advisory, school or jurisdiction guidance, clinic directory, vaccine or testing service information, translated scripts, and escalation rules. It identifies the topic and urgency, then retrieves only current, approved content.</p><p>The specialist sees a draft response with citations and the date of each source. If the caller reports urgent symptoms, asks for clinical advice, or provides information that may represent a new case, the workflow routes the interaction to the nurse line, epidemiology program, or emergency channel and records the referral reason.</p></div>
+              <div><h2>How this applies across the broader workflow</h2><ul class="compact-list"><li>Combine exposure notices, approved FAQs, current advisories, jurisdiction guidance, clinic directories, service information, translated scripts, and escalation rules.</li><li>Identify topic and urgency, retrieve only current approved content, and present a cited draft with the date of each source for staff review.</li><li>Route urgent symptoms, clinical questions, or possible new cases to the nurse line, epidemiology program, or emergency channel and record the referral reason.</li></ul></div>
             </div>
             <div class="reflection-panel"><h2>Reflection questions</h2><ul class="compact-list"><li>Which symptoms, exposure details, or phrases must trigger immediate escalation, and how will staff confirm that the urgent handoff reached the correct clinical or emergency channel?</li><li>Who owns each FAQ, advisory, response script, and translated version, and what review cadence is realistic during routine operations versus an active outbreak?</li><li>How will changes to clinic hours, testing availability, vaccine supply, and jurisdiction routing reach the response tool quickly enough to prevent a cited but operationally incorrect answer?</li></ul></div>
           </div>
@@ -65,6 +60,6 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="shell footer-row"><span>Public Health AI Use Cases</span><div class="footer-links"><a href="/use-cases/knowledge-assistant.html">Previous use case</a><a href="/">Home</a><a href="/use-cases/service-navigator.html">Next use case</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
 </body>
 </html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A cited knowledge assistant for food processing facility inspections and investigations.">
+  <link rel="icon" href="data:,">
+  <title>Food Facility Investigation Knowledge Assistant | Public Health AI</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body class="detail-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="shell nav-row"><nav class="case-nav" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Food facility investigation knowledge assistant</span></nav></div></header>
+  <main id="main">
+    <section class="single-case">
+      <div class="shell">
+        <article class="single-case-panel">
+          <header class="single-case-header">
+            <div><p class="detail-kicker">ENVIRONMENTAL HEALTH</p><h1>Food facility investigation knowledge assistant</h1><p class="single-case-summary">Bring regulations, facility history, HACCP plans, sampling guidance, and traceability procedures into one cited investigation view.</p></div>
+          </header>
+          <div class="single-case-content">
+            <div class="brief-row">
+              <div class="brief-block scenario-hook"><h2>Imagine when complaints and laboratory signals point to a food processing facility.</h2><p>The investigation team must understand the product and process, review prior violations and HACCP controls, identify the right sampling plan, coordinate traceability, and determine which state and federal authorities apply before entering the facility.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Relevant evidence is distributed across food code, state regulation, federal guidance, facility permits, process-flow diagrams, HACCP plans, prior inspections, complaint records, laboratory sampling manuals, and product-distribution records. Different versions, terminology, and jurisdiction create risk during a time-sensitive investigation.</p><p>The business need is fast access to the right cited requirement and investigation procedure—not an automated compliance or enforcement decision.</p></div>
+            </div>
+            <div class="friendly-flow" aria-label="Food facility investigation knowledge flow">
+              <div class="flow-node"><span>01</span><strong>Frame</strong><p>Product, process, hazard, event, and jurisdiction</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>02</span><strong>Retrieve</strong><p>Regulation, HACCP, history, and sampling guidance</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Compare</strong><p>Observed process against required controls</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Plan</strong><p>Interviews, records, samples, and traceability</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Document</strong><p>Cited evidence, finding, referral, and follow-up</p></div>
+            </div>
+            <div class="accelerator-stage">
+              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it between investigation framing and the field plan.</h2><p>RAG chat with Azure AI Search can index approved food code, state regulations, facility-specific plans, prior inspection reports, sampling guidance, and traceability procedures. The assistant retrieves exact passages and source metadata for the investigation team to compare with observed conditions.</p><p><strong>Reuse:</strong> document ingestion, hybrid retrieval, citation, chat history, source display, and evaluation patterns.</p><p><strong>Adapt:</strong> food program taxonomy, facility permissions, regulation versioning, HACCP metadata, sampling procedures, jurisdiction filters, and investigation prompts.</p><p><strong>Keep outside:</strong> the official finding, embargo or closure action, recall decision, legal interpretation, and laboratory result interpretation requiring qualified review.</p></div>
+              <aside class="template-card"><figure class="template-preview contain"><img src="https://azure.github.io/ai-app-templates/templates/images/azure-search-openai-demo-image.png" alt="RAG chat with Azure AI Search application preview"></figure><div class="template-card-body"><span>Related Azure AI App Template</span><strong>RAG chat with Azure AI Search + Python</strong><p>Answers questions about approved documents with retrieval and citations.</p><div class="template-actions"><a class="template-button" href="https://github.com/Azure-Samples/azure-search-openai-demo" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/azure-samples/azure-search-openai-demo/" target="_blank" rel="noopener noreferrer">View catalog entry</a></div></div></aside>
+            </div>
+            <div class="outcome-section">
+              <div><h2>Potential outcomes</h2><ul class="outcome-list"><li>Faster preparation for complex facility investigations.</li><li>More consistent use of current cited requirements and procedures.</li><li>Clearer links among complaints, controls, samples, findings, and follow-up.</li></ul></div>
+              <div><h2>How this addresses the challenge</h2><p>Versioned, permission-aware retrieval narrows a large regulatory and facility record set to the sources relevant to the product, hazard, process, and jurisdiction. Citations keep the evidence visible while authorized staff retain responsibility for interpretation and action.</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><ul class="compact-list"><li>Record the complaint cluster, laboratory signal, product, lot, distribution, process step, and jurisdiction during investigation intake.</li><li>Retrieve the applicable food code, permit, inspection history, HACCP plan, preventive controls, sanitation procedures, environmental monitoring, and sampling guidance to build the field plan.</li><li>Tie post-visit findings to observed evidence and cited authority while laboratory results, enforcement referrals, corrective actions, traceability, and reinspection remain in their systems of record.</li></ul></div>
+            </div>
+            <div class="reflection-panel"><h2>Reflection questions</h2><ul class="compact-list"><li>Which regulatory, sampling, and facility-specific sources must be available before an investigation begins, and who owns their version and approval status?</li><li>How will the assistant distinguish general guidance from a binding state requirement or a facility-specific approved control?</li><li>Which questions and findings require coordination with laboratory, agriculture, federal, legal, recall, or enforcement partners before action?</li></ul></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
+</body>
+</html>

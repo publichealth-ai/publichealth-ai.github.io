@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A field inspection assistant for swimming pools and other environmental health facilities using Azure AI and Power Platform patterns.">
+  <link rel="icon" href="data:,">
+  <title>Environmental Health Field Inspection Assistant | Public Health AI</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body class="detail-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="shell nav-row"><nav class="case-nav" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Environmental health field inspection assistant</span></nav></div></header>
+  <main id="main">
+    <section class="single-case">
+      <div class="shell">
+        <article class="single-case-panel">
+          <header class="single-case-header">
+            <div><p class="detail-kicker">ENVIRONMENTAL HEALTH</p><h1>Environmental health field inspection assistant</h1><p class="single-case-summary">Guide swimming-pool and other facility inspections with current requirements, structured evidence capture, and review-ready follow-up.</p></div>
+          </header>
+          <div class="single-case-content">
+            <div class="brief-row">
+              <div class="brief-block scenario-hook"><h2>Imagine when seasonal swimming-pool inspections must be completed before opening weekend.</h2><p>The field schedule spans dozens of facilities. Each visit requires the current permit, prior violations, water-chemistry records, equipment observations, photographs, code requirements, and follow-up deadlines—even when connectivity is unreliable.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Inspection data is split across permit systems, prior inspection PDFs, complaint records, facility plans, paper logs, photographs, and state or local code. Facility identifiers and addresses may differ across systems, while measurements and evidence need time, location, and inspector attribution.</p><p>The business need is a consistent field workflow that reduces after-visit documentation without automating the inspection finding or enforcement decision.</p></div>
+            </div>
+            <div class="friendly-flow" aria-label="Environmental health field inspection flow">
+              <div class="flow-node"><span>01</span><strong>Prepare</strong><p>Permit, history, checklist, code, and route</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Inspect</strong><p>Guided observations and required measurements</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>03</span><strong>Capture</strong><p>Photos, notes, logs, signatures, and location</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Review</strong><p>Validate evidence and cited requirement</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Follow up</strong><p>Notice, corrective action, reinspection, and closure</p></div>
+            </div>
+            <div class="accelerator-stage">
+              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Combine a Power Platform field workflow with Azure AI evidence processing.</h2><p>A Power Apps mobile application can provide the inspection schedule, offline checklist, measurement fields, photo capture, and signature. Power Automate can synchronize the visit and route the completed record for review. Multi-modal Content Processing can read uploaded logs, equipment labels, permits, and supporting documents and propose structured values for validation.</p><p><strong>Reuse:</strong> the multimodal document and image-processing pattern, structured output, and review experience.</p><p><strong>Adapt:</strong> facility and permit data, environmental-health checklists, offline behavior, inspection evidence, code citations, Power Platform connectors, and the reinspection workflow.</p><p><strong>Keep outside:</strong> the inspector's finding, enforcement action, immediate closure decision, and any legal notice that requires authorized approval.</p></div>
+              <aside class="template-card"><figure class="template-preview contain"><img src="https://azure.github.io/ai-app-templates/templates/images/content-processing-solution-accelerator-image.png" alt="Multi-modal Content Processing application preview"></figure><div class="template-card-body"><span>Related implementation pattern</span><strong>Multi-modal Content Processing + Power Platform</strong><p>Use Azure AI for evidence extraction and Power Apps or Power Automate for the field and workflow experience.</p><div class="template-actions"><a class="template-button" href="https://github.com/microsoft/content-processing-solution-accelerator" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/microsoft/content-processing-solution-accelerator/" target="_blank" rel="noopener noreferrer">View Azure template</a></div></div></aside>
+            </div>
+            <div class="outcome-section">
+              <div><h2>Potential outcomes</h2><ul class="outcome-list"><li>More complete and consistent inspections across jurisdictions and staff.</li><li>Less after-visit transcription and faster notice preparation.</li><li>Clearer facility risk, repeat violation, and reinspection visibility.</li></ul></div>
+              <div><h2>How this addresses the challenge</h2><p>The mobile workflow connects the facility record, checklist, measurements, photos, and cited requirement at the point of inspection. AI processes supporting evidence, while staff validate every proposed value and retain responsibility for findings and enforcement.</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><ul class="compact-list"><li>Assemble the permit, previous inspection, unresolved violations, complaint history, facility plan, applicable code, and route before the visit.</li><li>Record disinfectant residual, pH, water clarity, safety equipment, operator logs, barriers, signage, photos, timestamps, and corrective actions during the inspection.</li><li>Confirm evidence and cited requirements after synchronization, then trigger notice preparation, corrective-action tracking, reinspection, supervisor review, closure, and risk-based planning.</li></ul></div>
+            </div>
+            <div class="reflection-panel"><h2>Reflection questions</h2><ul class="compact-list"><li>Which inspection types and evidence fields create the most after-visit work, and which can be standardized without constraining professional judgment?</li><li>What must work offline, how will photos and measurements be time- and location-stamped, and how will the visit reconcile when facility identifiers differ across systems?</li><li>Which findings require immediate supervisor notification, laboratory sampling, facility closure, or legal review rather than routine corrective-action follow-up?</li></ul></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
+</body>
+</html>

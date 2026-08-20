@@ -19,11 +19,7 @@
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="shell nav-row">
-    <a class="brand" href="/" aria-label="Return to AI patterns for public health work"><span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>AI patterns for public health work.</span></a>
-    <nav class="desktop-nav" aria-label="Primary navigation"><a href="/#use-cases">Use cases</a><a href="/#stories">Customer stories</a><a href="https://azure.github.io/ai-app-templates/?tags=azureopenai" target="_blank" rel="noopener noreferrer">Azure AI templates</a></nav>
-    <button class="menu-button" id="open-menu" type="button" aria-haspopup="dialog" aria-controls="site-menu"><span>Explore</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
-  </div></header>
+  <header class="site-header"><div class="shell nav-row"><nav class="case-nav" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Epidemiology knowledge assistant</span></nav></div></header>
   <dialog class="site-menu" id="site-menu" aria-label="Site navigation"><div class="menu-shell">
     <div class="menu-top"><span class="menu-title">Public Health AI</span><button class="menu-close" id="close-menu" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button></div>
     <div class="menu-grid"><a class="menu-home" href="/">Home</a><nav class="menu-links" aria-label="Use cases"><a href="/use-cases/document-intake.html">Case and laboratory document intake</a><a href="/use-cases/knowledge-assistant.html">Epidemiology knowledge assistant</a><a href="/use-cases/inquiry-response.html">Public inquiry response assistant</a><a href="/use-cases/service-navigator.html">Public health service navigator</a><a href="/use-cases/emergency-coordination.html">Public health emergency coordination</a><a href="/use-cases/knowledge-hub.html">Cross-agency surveillance knowledge hub</a><a href="/use-cases/protocol-review.html">Surveillance policy and protocol review</a></nav></div>
@@ -31,10 +27,9 @@
   <main id="main">
     <section class="single-case">
       <div class="shell">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Use case 02</span></nav>
         <article class="single-case-panel">
           <header class="single-case-header">
-            <div><p class="detail-kicker">USE CASE 02 · DISEASE SURVEILLANCE · ENVIRONMENTAL HEALTH · COMMUNITY HEALTH</p><h1>Epidemiology knowledge assistant</h1><p class="single-case-summary">Retrieve current, cited guidance from trusted epidemiology sources without replacing professional judgment or official case determination.</p></div>
+            <div><p class="detail-kicker">DISEASE SURVEILLANCE · ENVIRONMENTAL HEALTH · COMMUNITY HEALTH</p><h1>Epidemiology knowledge assistant</h1><p class="single-case-summary">Retrieve current, cited guidance from trusted epidemiology sources without replacing professional judgment or official case determination.</p></div>
           </header>
           <div class="single-case-content">
             <div class="brief-row">
@@ -44,12 +39,12 @@
             <div class="friendly-flow" aria-label="Epidemiology knowledge assistant flow">
               <div class="flow-node"><span>01</span><strong>Ask</strong><p>Condition, jurisdiction, and investigation question</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>02</span><strong>Authorize</strong><p>Apply user role and source permissions</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>03</span><strong>Retrieve</strong><p>Hybrid search across approved versions</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>03</span><strong>Retrieve</strong><p>Hybrid search across approved versions</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>04</span><strong>Compare</strong><p>Show criteria, dates, and source passages</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>05</span><strong>Decide</strong><p>Authorized reviewer applies professional judgment</p></div>
             </div>
             <div class="accelerator-stage">
-              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it between curated knowledge and the case decision.</h2><p>RAG chat with Azure AI Search provides the ingestion, indexing, hybrid retrieval, and citation pattern. It retrieves the relevant case-definition or protocol passages for comparison; it does not classify the case or replace the surveillance system's decision record.</p></div>
+              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it between curated knowledge and the case decision.</h2><p>RAG chat with Azure AI Search provides the ingestion, indexing, hybrid retrieval, and citation pattern. It retrieves the relevant case-definition or protocol passages for comparison; it does not classify the case or replace the surveillance system's decision record.</p><p><strong>Reuse:</strong> document ingestion, hybrid search, cited answers, retrieval controls, and the conversational interface.</p><p><strong>Adapt:</strong> source metadata, jurisdiction and effective-date filters, security groups, content approval, evaluation questions, and the feedback workflow.</p><p><strong>Keep outside:</strong> protected case data, official classification, clinical interpretation, and the permanent decision record.</p></div>
               <aside class="template-card"><figure class="template-preview contain"><img src="https://azure.github.io/ai-app-templates/templates/images/azure-search-openai-demo-image.png" alt="RAG chat with Azure AI Search application preview"></figure><div class="template-card-body"><span>Related Azure AI App Template</span><strong>RAG chat with Azure AI Search + Python</strong><p>Answers questions about uploaded documents with retrieval and citations.</p><div class="template-actions"><a class="template-button" href="https://github.com/Azure-Samples/azure-search-openai-demo" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/azure-samples/azure-search-openai-demo/" target="_blank" rel="noopener noreferrer">View catalog entry</a></div></div></aside>
             </div>
             <div class="outcome-section">
@@ -57,7 +52,7 @@
               <div><h2>How this addresses the challenge</h2><p>Version and jurisdiction metadata constrain retrieval to the right source set. Permission checks occur before search, and every answer exposes its passage, owner, and effective date so the case team can compare evidence instead of trusting an unattributed summary.</p></div>
             </div>
             <div class="workflow-application">
-              <div><h2>How this applies across the broader workflow</h2><p>The assistant indexes approved CDC or CSTE case definitions, state surveillance manuals, local investigation SOPs, vaccination guidance, and LOINC or SNOMED reference material. Metadata records the owner, jurisdiction, effective date, superseded date, audience, and security classification.</p><p>When the case question is asked, retrieval is constrained to authorized sources and returns exact passages for clinical criteria, laboratory evidence, epidemiologic linkage, and reporting actions. The case team compares those passages with the timeline and laboratory data, documents the rationale, and makes the official determination in the surveillance system.</p></div>
+              <div><h2>How this applies across the broader workflow</h2><ul class="compact-list"><li>Index approved case definitions, surveillance manuals, investigation SOPs, vaccination guidance, and LOINC or SNOMED references with owner, jurisdiction, effective date, and security metadata.</li><li>Constrain each case question to authorized sources and retrieve exact passages for clinical criteria, laboratory evidence, epidemiologic linkage, and reporting actions.</li><li>Have the case team compare cited evidence with the timeline and laboratory data, document its rationale, and make the official determination in the surveillance system.</li></ul></div>
             </div>
             <div class="reflection-panel"><h2>Reflection questions</h2><ul class="compact-list"><li>Which national, state, and local collections are authoritative for each condition, and how will the assistant show when two sources apply to different jurisdictions or effective periods?</li><li>What content-governance process will approve new material, remove superseded versions, preserve required history, and test that retrieval still returns the correct evidence after every update?</li><li>Which questions should the assistant decline or escalate because they require senior program, clinical, legal, or case-specific judgment rather than knowledge retrieval?</li></ul></div>
           </div>
@@ -65,6 +60,6 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="shell footer-row"><span>Public Health AI Use Cases</span><div class="footer-links"><a href="/use-cases/document-intake.html">Previous use case</a><a href="/">Home</a><a href="/use-cases/inquiry-response.html">Next use case</a></div></div></footer>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
 </body>
 </html>
