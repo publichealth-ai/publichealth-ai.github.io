@@ -351,12 +351,13 @@ button:focus-visible {
     url("https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Hero-public-health-service-688x528?wid=2400&hei=900&fit=crop&qlt=90");
   background-position: center;
   background-size: cover;
+  min-height: 100svh;
 }
 
 .home-hero {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: 560px;
+  min-height: 100svh;
 }
 
 .hero-copy {
@@ -532,6 +533,16 @@ h1 {
   align-items: center;
   gap: 10px;
   margin: -8px 0 30px;
+}
+
+.filter-label {
+  width: 100%;
+  margin-bottom: 2px;
+  color: var(--cp-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .filter-button {

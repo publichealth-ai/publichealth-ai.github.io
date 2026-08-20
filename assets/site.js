@@ -50,7 +50,8 @@ if (filterButtons.length && caseCards.length) {
     let visible = 0;
 
     caseCards.forEach((card) => {
-      const show = filter === "all" || card.dataset.caseGroup === filter;
+      const groups = card.dataset.caseGroup.split(/\s+/);
+      const show = filter === "all" || groups.includes(filter);
       card.hidden = !show;
       if (show) visible += 1;
     });
