@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js?v=2" defer></script>
+  <script src="/assets/site.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,8 +26,8 @@
         <div class="hero-copy">
           <h1>AI patterns for public health work.</h1>
           <p class="hero-intro">
-            Understand the business need, data, workflow, and applied scenario—then open reusable
-            Azure AI App Templates to begin a technical proof of concept. Explore how Microsoft helps
+            Understand the business need, data, workflow, and applied scenario—then explore reusable
+            Microsoft technology to begin a technical proof of concept. See how Microsoft helps
             public health and social services organizations better serve constituents and communities.
           </p>
           <div class="hero-actions">
@@ -40,7 +40,6 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg>
             </a>
           </div>
-          <p class="hero-attribution">By <a href="https://www.linkedin.com/in/supawitket/" target="_blank" rel="noopener noreferrer">Supawit Ket-udom</a>, Industry Director - Public Health</p>
         </div>
       </div>
     </section>
@@ -61,67 +60,84 @@
           <button class="filter-button" type="button" data-case-filter="preparedness-response" aria-pressed="false">Preparedness &amp; response</button>
           <span class="filter-count" id="filter-count" aria-live="polite">10 use cases</span>
         </div>
+        <div class="filter-bar technology-filter reveal" aria-label="Filter use cases by technology">
+          <span class="filter-label">Filter by Microsoft technology</span>
+          <button class="filter-button" type="button" data-technology-filter="all" aria-pressed="true">All technologies</button>
+          <button class="filter-button technology-button" type="button" data-technology-filter="azure" aria-pressed="false">
+            <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/NEWAzure_17x17?wid=64&amp;hei=64&amp;fmt=png-alpha" alt="" aria-hidden="true">
+            <span>Azure</span>
+          </button>
+          <button class="filter-button technology-button" type="button" data-technology-filter="m365-copilot" aria-pressed="false">
+            <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/logo-copilot?wid=64&amp;hei=64&amp;fmt=png-alpha" alt="" aria-hidden="true">
+            <span>Microsoft 365 Copilot</span>
+            <span class="technology-count">0</span>
+          </button>
+        </div>
         <div class="case-grid">
-          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/document-intake.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" data-technology="azure" href="/use-cases/document-intake.html">
             <span class="case-number">01 · Disease surveillance</span>
             <h3>eCR, ELR, and surveillance intake</h3>
             <p>Route structured eCR and ELR, then extract fields from fax, PDF, and other surveillance intake formats.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/knowledge-assistant.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" data-technology="azure" href="/use-cases/knowledge-assistant.html">
             <span class="case-number">02 · Disease surveillance</span>
             <h3>Epidemiology knowledge assistant</h3>
             <p>Find cited answers across case definitions, protocols, code sets, and program guidance.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="environmental-health community-health" href="/use-cases/inquiry-response.html">
+          <a class="case-card reveal" data-case-group="environmental-health community-health" data-technology="azure" href="/use-cases/inquiry-response.html">
             <span class="case-number">03 · Community health</span>
             <h3>Public inquiry response assistant</h3>
             <p>Give contact-center and program staff consistent, citation-backed response drafts.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="environmental-health community-health" href="/use-cases/service-navigator.html">
+          <a class="case-card reveal" data-case-group="environmental-health community-health" data-technology="azure" href="/use-cases/service-navigator.html">
             <span class="case-number">04 · Community health</span>
             <h3>Public health service navigator</h3>
             <p>Help residents find clinics, testing, vaccination, alerts, and local health services.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="preparedness-response" href="/use-cases/emergency-coordination.html">
+          <a class="case-card reveal" data-case-group="preparedness-response" data-technology="azure" href="/use-cases/emergency-coordination.html">
             <span class="case-number">05 · Preparedness &amp; response</span>
             <h3>Public health emergency coordination</h3>
             <p>Draft coordinated plans across surveillance, clinical, logistics, and partner teams.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/knowledge-hub.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" data-technology="azure" href="/use-cases/knowledge-hub.html">
             <span class="case-number">06 · Disease surveillance</span>
             <h3>Cross-agency surveillance knowledge hub</h3>
             <p>Search partner guidance while enforcing the permissions attached to each source.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="disease-surveillance" href="/use-cases/protocol-review.html">
+          <a class="case-card reveal" data-case-group="disease-surveillance" data-technology="azure" href="/use-cases/protocol-review.html">
             <span class="case-number">07 · Cross-program governance</span>
             <h3>Surveillance policy and protocol review</h3>
             <p>Find missing or inconsistent requirements before formal program and governance review.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="environmental-health" href="/use-cases/environmental-inspection.html">
+          <a class="case-card reveal" data-case-group="environmental-health" data-technology="azure" href="/use-cases/environmental-inspection.html">
             <span class="case-number">08 · Environmental health</span>
             <h3>Environmental health field inspection assistant</h3>
             <p>Support swimming-pool and other facility inspections with guided checklists, evidence capture, and cited requirements.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="environmental-health" href="/use-cases/food-facility-knowledge.html">
+          <a class="case-card reveal" data-case-group="environmental-health" data-technology="azure" href="/use-cases/food-facility-knowledge.html">
             <span class="case-number">09 · Environmental health</span>
             <h3>Food facility investigation knowledge assistant</h3>
             <p>Bring regulations, facility history, HACCP plans, sampling guidance, and traceability procedures into one cited investigation view.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" data-case-group="preparedness-response" href="/use-cases/emergency-policy-assistant.html">
+          <a class="case-card reveal" data-case-group="preparedness-response" data-technology="azure" href="/use-cases/emergency-policy-assistant.html">
             <span class="case-number">10 · Preparedness &amp; response</span>
             <h3>Emergency knowledge and policy assistant</h3>
             <p>Find plans, authorities, job action sheets, agreements, and policy constraints during activation and planning.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
+        </div>
+        <div class="filter-empty-state" id="filter-empty-state" hidden>
+          <strong>No Microsoft 365 Copilot use cases yet.</strong>
+          <span>This filter is ready for future public health workflow examples.</span>
         </div>
       </div>
     </section>
@@ -242,6 +258,6 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>.</span></div></footer>
+  <footer class="site-footer"><div class="shell footer-row contact-footer"><span>Questions or feedback? Reach out to <a href="mailto:supaketu@microsoft.com">Supawit Ket-udom</a>, Industry Director, Public Health, Microsoft Worldwide Public Sector.</span></div></footer>
 </body>
 </html>
