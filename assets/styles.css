@@ -78,6 +78,10 @@ html[data-theme="dark"] {
   --cp-panel-strong: #ffffff;
   --cp-sheen: rgba(255, 255, 255, 0.62);
   --cp-highlight: #dceeff;
+  --cp-attention: #fff4c2;
+  --cp-attention-start: #f5b700;
+  --cp-attention-end: #e86a17;
+  --cp-attention-border: #d65a00;
 }
 
 * {
@@ -86,6 +90,7 @@ html[data-theme="dark"] {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -348,8 +353,9 @@ button:focus-visible {
   background-color: var(--cp-bg-elevated);
   background-image:
     linear-gradient(var(--cp-sheen), var(--cp-sheen)),
-    url("https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Hero-public-health-service-688x528?wid=2400&hei=900&fit=crop&qlt=90");
+    url("/assets/hero-public-health.jpeg");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 50svh;
   min-height: 420px;
@@ -439,7 +445,7 @@ h1 {
 }
 
 .hero-attribution {
-  margin: 24px 0 0;
+  margin: 24px 0 28px;
   color: var(--cp-text-muted);
   font-size: 14px;
 }
@@ -611,15 +617,12 @@ h1 {
 }
 
 .case-number {
-  color: var(--cp-link);
-  font-family: Consolas, "Courier New", Courier, monospace;
-  font-size: 13px;
-  font-weight: 700;
+  display: none;
 }
 
 .case-card h3 {
   max-width: 310px;
-  margin: 36px 0 12px;
+  margin: 8px 0 12px;
   font-size: 27px;
   line-height: 1.12;
   letter-spacing: -0.03em;
@@ -689,7 +692,7 @@ h1 {
   margin: -10px 0 36px;
   padding: 16px 18px;
   border-left: 4px solid var(--cp-link);
-  background: var(--cp-surface-soft);
+  background: var(--cp-attention);
   color: var(--cp-text-muted);
   font-size: 14px;
 }
@@ -1063,6 +1066,7 @@ h1 {
   border: 1px solid var(--cp-border);
   border-radius: 10px;
   background: var(--cp-surface);
+  box-shadow: var(--cp-shadow);
 }
 
 .single-case-header {
@@ -1075,25 +1079,72 @@ h1 {
 }
 
 .detail-page .site-header {
+  --page-progress: 0;
   position: sticky;
   top: 0;
   z-index: 30;
   display: block;
+  overflow: hidden;
   border-bottom: 1px solid var(--cp-border);
   background: var(--cp-panel);
-  backdrop-filter: blur(16px);
+}
+
+.detail-page .site-header::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--cp-link);
+  transform: scaleX(var(--page-progress));
+  transform-origin: left;
+  transition: transform 80ms linear;
+}
+
+.detail-page .site-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -18px;
+  background-image:
+    linear-gradient(var(--cp-overlay), var(--cp-overlay)),
+    url("/assets/hero-public-health.jpeg");
+  background-position: center;
+  background-size: cover;
+  filter: blur(10px);
+  transform: scale(1.05);
 }
 
 .detail-page .nav-row {
   min-height: 54px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.detail-page .brand {
-  color: var(--cp-accent);
+.case-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cp-accent-fg);
   font-size: 15px;
-  letter-spacing: 0;
-  text-transform: none;
+}
+
+.case-nav a {
+  color: var(--cp-accent-fg);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.case-nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.case-nav span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .detail-page .brand-glyph,
@@ -1104,6 +1155,10 @@ h1 {
 
 .detail-page .brand > span:last-child {
   display: inline;
+}
+
+.detail-page .single-case > .shell > .breadcrumbs {
+  display: none;
 }
 
 .single-case-header h1 {
@@ -1119,6 +1174,8 @@ h1 {
 }
 
 .template-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--cp-border);
   border-top: 5px solid var(--cp-link);
@@ -1148,6 +1205,9 @@ h1 {
 }
 
 .template-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 22px;
 }
 
@@ -1176,7 +1236,8 @@ h1 {
 .template-actions {
   display: grid;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 18px;
 }
 
 .template-button {
@@ -1186,10 +1247,11 @@ h1 {
   justify-content: center;
   gap: 8px;
   padding: 11px 16px;
-  border: 2px solid var(--cp-accent);
+  border: 1px solid var(--cp-accent);
   border-radius: 0.625rem;
-  background: var(--cp-accent);
+  background: linear-gradient(135deg, var(--cp-accent), var(--cp-link));
   color: var(--cp-accent-fg);
+  box-shadow: var(--cp-shadow);
   font-size: 14px;
   font-weight: 800;
   text-decoration: none;
@@ -1197,7 +1259,8 @@ h1 {
 }
 
 .template-button:hover {
-  background: var(--cp-accent-hover);
+  background: linear-gradient(135deg, var(--cp-link), var(--cp-accent));
+  box-shadow: 0 10px 24px var(--cp-highlight);
   transform: translateY(-2px);
 }
 
@@ -1281,8 +1344,7 @@ h1 {
   border-top: 3px solid var(--cp-border);
   border-radius: 8px;
   background: var(--cp-surface);
-  cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  cursor: default;
 }
 
 .flow-node span {
@@ -1301,29 +1363,15 @@ h1 {
 }
 
 .flow-node p {
-  margin: 0;
-  max-height: 0;
-  overflow: hidden;
+  margin: 8px 0 0;
   color: var(--cp-text-muted);
   font-size: 12px;
-  opacity: 0;
-  transition: max-height 180ms ease, opacity 180ms ease;
 }
 
-.flow-node:hover,
-.flow-node:focus,
-.flow-node.is-active {
-  border-color: var(--cp-link);
-  background: var(--cp-bg-elevated);
-  outline: none;
-  transform: translateY(-2px);
-}
-
-.flow-node:hover p,
-.flow-node:focus p,
-.flow-node.is-active p {
-  max-height: 72px;
-  opacity: 1;
+.flow-node[data-accelerator="true"] {
+  border-color: var(--cp-accent);
+  background: var(--cp-attention);
+  box-shadow: var(--cp-shadow);
 }
 
 .flow-arrow {
@@ -1384,7 +1432,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
   padding: 38px 0;
   border-bottom: 1px solid var(--cp-border);
 }
@@ -1395,6 +1443,17 @@ h1 {
   color: var(--cp-accent);
   font-size: clamp(24px, 3vw, 34px);
   letter-spacing: -0.025em;
+}
+
+.accelerator-fit-copy {
+  padding: 28px;
+  border-left: 4px solid var(--cp-accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--cp-attention);
+}
+
+.accelerator-fit-copy p strong {
+  color: var(--cp-text);
 }
 
 .accelerator-fit-copy p,
@@ -1479,7 +1538,7 @@ h1 {
   stroke: var(--cp-link);
   stroke-width: 1.5;
   stroke-dasharray: 5 5;
-  animation: flow-line 9s linear infinite;
+  animation: flow-line 3.5s linear infinite;
 }
 
 .dynamic-flow-marker {
@@ -1487,8 +1546,7 @@ h1 {
 }
 
 .dynamic-flow-node {
-  cursor: pointer;
-  outline: none;
+  cursor: default;
 }
 
 .dynamic-flow-node rect {
@@ -1498,11 +1556,9 @@ h1 {
   transition: fill 160ms ease, stroke 160ms ease, transform 160ms ease;
 }
 
-.dynamic-flow-node:hover rect,
-.dynamic-flow-node:focus rect,
-.dynamic-flow-node.is-active rect {
-  fill: var(--cp-bg-elevated);
-  stroke: var(--cp-link);
+.dynamic-flow-node.is-accelerator rect {
+  fill: var(--cp-attention);
+  stroke: var(--cp-accent);
   stroke-width: 2;
 }
 
@@ -1520,17 +1576,23 @@ h1 {
   font-weight: 700;
 }
 
-.dynamic-flow-detail {
-  min-height: 52px;
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
-  padding: 12px 16px;
-  border-left: 4px solid var(--cp-link);
-  border-radius: 0 8px 8px 0;
-  background: var(--cp-bg-elevated);
+.dynamic-flow-copy {
+  width: 100%;
+  height: 100%;
   color: var(--cp-text-muted);
-  font-size: 14px;
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px;
+  line-height: 1.35;
+  overflow: hidden;
+}
+
+.dynamic-flow-badge {
+  fill: var(--cp-accent);
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 @keyframes flow-line {
@@ -1671,6 +1733,64 @@ h1 {
   text-decoration: none;
 }
 
+.contact-footer {
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-footer a {
+  color: var(--cp-link);
+  font-weight: 750;
+  text-underline-offset: 3px;
+}
+
+.page-top-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 25;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--cp-border);
+  border-radius: 50%;
+  background: var(--cp-accent);
+  color: var(--cp-accent-fg);
+  box-shadow: var(--cp-shadow);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.page-top-button.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.page-top-button:hover {
+  background: var(--cp-link);
+}
+
+.page-top-button svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.story-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 490px;
+}
+
 .reveal {
   opacity: 1;
   transform: none;
@@ -1770,6 +1890,11 @@ h1 {
     display: none;
   }
 
+  .case-nav {
+    gap: 6px;
+    font-size: 13px;
+  }
+
   .brand {
     font-size: 12px;
   }
@@ -1798,7 +1923,7 @@ h1 {
   }
 
   .hero-copy {
-    padding: 56px 20px;
+    padding: 42px 18px 78px;
   }
 
   .hero,
@@ -1812,7 +1937,31 @@ h1 {
   }
 
   h1 {
-    font-size: clamp(44px, 14vw, 64px);
+    font-size: clamp(34px, 10vw, 48px);
+    line-height: 1.04;
+  }
+
+  .hero-intro {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .hero-actions {
+    width: 100%;
+    margin-top: 22px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions .button {
+    width: min(100%, 360px);
+  }
+
+  .hero-attribution {
+    max-width: 340px;
+    margin: 18px 0 22px;
+    font-size: 13px;
   }
 
   .section {
@@ -1861,6 +2010,11 @@ h1 {
     flex-direction: column;
   }
 
+  .page-top-button {
+    right: 16px;
+    bottom: 16px;
+  }
+
   .single-case {
     padding: 48px 0 72px;
   }
@@ -1906,6 +2060,10 @@ h1 {
     height: 160px;
   }
 
+  .accelerator-fit-copy {
+    padding: 22px 20px;
+  }
+
   .reflection-panel {
     margin-bottom: 24px;
     padding: 26px 20px;
@@ -1928,6 +2086,10 @@ h1 {
   .js .reveal,
   .dynamic-flow-link {
     animation: none;
+    transition: none;
+  }
+
+  .detail-page .site-header::after {
     transition: none;
   }
 }

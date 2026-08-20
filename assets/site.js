@@ -1,5 +1,78 @@
 document.documentElement.classList.add("js");
 
+const acceleratorLabels = new Map([
+  ["Reuse:", "What the template gives you:"],
+  ["Adapt:", "What your team adds:"],
+  ["Keep outside:", "What stays with people and existing systems:"]
+]);
+
+document.querySelectorAll(".accelerator-fit-copy strong").forEach((label) => {
+  const replacement = acceleratorLabels.get(label.textContent.trim());
+  if (replacement) label.textContent = replacement;
+});
+
+document.querySelectorAll(".story-card img").forEach((image) => {
+  image.loading = "lazy";
+  image.decoding = "async";
+});
+
+const prefetchedPages = new Set();
+
+document.querySelectorAll(".case-card[href]").forEach((card) => {
+  card.addEventListener(
+    "mouseenter",
+    () => {
+      const href = card.getAttribute("href");
+      if (!href || prefetchedPages.has(href)) return;
+
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = href;
+      document.head.appendChild(link);
+      prefetchedPages.add(href);
+    },
+    { once: true }
+  );
+});
+
+if (document.body.classList.contains("detail-page")) {
+  const header = document.querySelector(".site-header");
+  const topButton = document.createElement("button");
+  topButton.className = "page-top-button";
+  topButton.type = "button";
+  topButton.setAttribute("aria-label", "Back to top");
+  topButton.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg>';
+  document.body.appendChild(topButton);
+
+  let scrollFrame;
+
+  const updateScrollState = () => {
+    const available = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = available > 0 ? Math.min(window.scrollY / available, 1) : 0;
+    header?.style.setProperty("--page-progress", String(progress));
+    topButton.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.7);
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(() => {
+        updateScrollState();
+        scrollFrame = undefined;
+      });
+    },
+    { passive: true }
+  );
+
+  topButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  updateScrollState();
+}
+
 const menu = document.getElementById("site-menu");
 const openMenu = document.getElementById("open-menu");
 const closeMenu = document.getElementById("close-menu");
@@ -44,6 +117,29 @@ if ("IntersectionObserver" in window) {
 const filterButtons = document.querySelectorAll("[data-case-filter]");
 const caseCards = document.querySelectorAll("[data-case-group]");
 const filterCount = document.getElementById("filter-count");
+const caseGrid = document.querySelector(".case-grid");
+
+if (caseGrid && caseCards.length) {
+  Array.from(caseCards)
+    .sort((left, right) => {
+      const leftTitle = left.querySelector("h3")?.textContent.trim() || "";
+      const rightTitle = right.querySelector("h3")?.textContent.trim() || "";
+      return leftTitle.localeCompare(rightTitle, undefined, { sensitivity: "base" });
+    })
+    .forEach((card) => caseGrid.appendChild(card));
+}
+
+const storyGrid = document.querySelector(".story-grid");
+
+if (storyGrid) {
+  Array.from(storyGrid.querySelectorAll(".story-card"))
+    .sort((left, right) => {
+      const leftOrganization = left.querySelector(".story-org")?.textContent.trim() || "";
+      const rightOrganization = right.querySelector(".story-org")?.textContent.trim() || "";
+      return leftOrganization.localeCompare(rightOrganization, undefined, { sensitivity: "base" });
+    })
+    .forEach((card) => storyGrid.appendChild(card));
+}
 
 if (filterButtons.length && caseCards.length) {
   const applyFilter = (filter) => {
@@ -115,7 +211,8 @@ const enhanceFlow = (flow, chartIndex) => {
     index,
     step: node.querySelector("span")?.textContent.trim() || String(index + 1),
     title: node.querySelector("strong")?.textContent.trim() || "",
-    detail: node.querySelector("p")?.textContent.trim() || ""
+    detail: node.querySelector("p")?.textContent.trim() || "",
+    accelerator: node.dataset.accelerator === "true"
   }));
 
   if (!data.length || !window.d3) return;
@@ -125,25 +222,20 @@ const enhanceFlow = (flow, chartIndex) => {
   flow.insertAdjacentElement("afterend", host);
   flow.classList.add("is-enhanced");
 
-  const detail = document.createElement("div");
-  detail.className = "dynamic-flow-detail";
-  detail.setAttribute("aria-live", "polite");
-  host.appendChild(detail);
-
   let resizeTimer;
 
   const render = () => {
     host.querySelector("svg")?.remove();
     const compact = host.clientWidth < 680;
     const width = compact ? 360 : 1000;
-    const height = compact ? 520 : 150;
-    const nodeWidth = compact ? 300 : 156;
-    const nodeHeight = compact ? 62 : 66;
+    const height = compact ? 660 : 178;
+    const nodeWidth = compact ? 320 : 172;
+    const nodeHeight = compact ? 104 : 116;
     const markerId = `flow-arrow-${chartIndex}`;
     const positions = data.map((item, index) => ({
       ...item,
-      x: compact ? 30 : 24 + index * 199,
-      y: compact ? 16 + index * 96 : 28
+      x: compact ? 20 : 10 + index * 202,
+      y: compact ? 12 + index * 132 : 28
     }));
 
     const svg = window.d3
@@ -192,10 +284,8 @@ const enhanceFlow = (flow, chartIndex) => {
       .selectAll("g")
       .data(positions)
       .join("g")
-      .attr("class", "dynamic-flow-node")
+      .attr("class", (item) => `dynamic-flow-node${item.accelerator ? " is-accelerator" : ""}`)
       .attr("transform", (item) => `translate(${item.x},${item.y})`)
-      .attr("role", "button")
-      .attr("tabindex", 0)
       .attr("aria-label", (item) => `${item.step}. ${item.title}. ${item.detail}`);
 
     nodes
@@ -215,24 +305,27 @@ const enhanceFlow = (flow, chartIndex) => {
       .append("text")
       .attr("class", "dynamic-flow-title")
       .attr("x", 14)
-      .attr("y", 46)
+      .attr("y", 45)
       .text((item) => item.title);
 
-    const activate = (item) => {
-      nodes.classed("is-active", (candidate) => candidate.index === item.index);
-      detail.textContent = `${item.step}. ${item.title} — ${item.detail}`;
-    };
+    nodes
+      .filter((item) => item.accelerator)
+      .append("text")
+      .attr("class", "dynamic-flow-badge")
+      .attr("x", nodeWidth - 12)
+      .attr("y", 20)
+      .attr("text-anchor", "end")
+      .text("Accelerator fit");
 
     nodes
-      .on("click", (event, item) => activate(item))
-      .on("mouseenter", (event, item) => activate(item))
-      .on("keydown", (event, item) => {
-        if (event.key !== "Enter" && event.key !== " ") return;
-        event.preventDefault();
-        activate(item);
-      });
-
-    activate(positions[0]);
+      .append("foreignObject")
+      .attr("x", 14)
+      .attr("y", 57)
+      .attr("width", nodeWidth - 28)
+      .attr("height", nodeHeight - 65)
+      .append("xhtml:div")
+      .attr("class", "dynamic-flow-copy")
+      .text((item) => item.detail);
   };
 
   render();
