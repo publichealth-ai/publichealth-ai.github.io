@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js?v=5" defer></script>
+  <script src="/assets/site.js?v=6" defer></script>
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -37,11 +37,11 @@
               <div class="brief-block"><h2>Business need and data challenge</h2><p>The bottleneck is not a lack of data; it is variation in format and quality. eCR commonly sends an electronic initial case report (eICR) as HL7 CDA R2 XML and receives a Reportability Response, with FHIR eCR emerging where supported. ELR commonly arrives as HL7 v2 ORU messages, with FHIR DiagnosticReport and Observation used in some implementations. Provider forms and attachments may still arrive as low-resolution images with missing fields, handwriting, duplicate patients, and inconsistent dates.</p><p>The business need is to shorten receipt-to-assignment time without allowing failed structured messages or uncertain extraction to become accepted surveillance data.</p></div>
             </div>
             <div class="friendly-flow" aria-label="Business scenario sequence for eCR, ELR, and surveillance intake with accelerator fit">
-              <div class="flow-node"><span>Before 1</span><strong>Reports arrive</strong><p>eCR, ELR, fax, PDF, email, or referral</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>Before 2</span><strong>Route intake</strong><p>Valid structured messages continue; documents and exceptions branch</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Reports arrive</strong><p>eCR, ELR, fax, PDF, email, or referral</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Route intake</strong><p>Valid structured messages continue; documents and exceptions branch</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node" data-accelerator="true"><span>Accelerator</span><strong>Extract documents</strong><p>AI proposes fields from unstructured supplements and exceptions</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>After 1</span><strong>Validate fields</strong><p>Staff checks source, confidence, matching, and duplicates</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>After 2</span><strong>Open investigation</strong><p>Approved data creates or updates the surveillance record</p></div>
+              <div class="flow-node"><strong>Validate fields</strong><p>Staff checks source, confidence, matching, and duplicates</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Open investigation</strong><p>Approved data creates or updates the surveillance record</p></div>
             </div>
             <div class="accelerator-stage">
               <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Partial fit: use it only for unstructured supplements and exception documents.</h2><p>Multi-modal Content Processing does not parse or validate eICR CDA XML, HL7 v2 ELR, FHIR resources, or Reportability Responses. It fits after the interface and rules layer has separated valid structured messages from fax and PDF reports, eCR attachments, scanned clinical documents, and exception artifacts that require extraction. It classifies those unstructured items, proposes surveillance fields, and sends values with confidence and source location into the staff validation queue.</p><p><strong>Reuse:</strong> the upload experience, document classification, multimodal extraction, structured output, and review pattern.</p><p><strong>Adapt:</strong> the document schemas, surveillance field definitions, confidence thresholds, protected-data boundary, matching service, and API used to create a draft record.</p><p><strong>Keep outside:</strong> eICR CDA/RR, ELR HL7/FHIR transport and conformance validation, reportability rules, identity matching, final case creation, and acceptance by authorized staff.</p></div>

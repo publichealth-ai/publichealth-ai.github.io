@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js?v=5" defer></script>
+  <script src="/assets/site.js?v=6" defer></script>
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -33,11 +33,11 @@
               <div class="brief-block"><h2>Business need and data challenge</h2><p>Inspection data is split across permit systems, prior inspection PDFs, complaint records, facility plans, paper logs, photographs, and state or local code. Facility identifiers and addresses may differ across systems, while measurements and evidence need time, location, and inspector attribution.</p><p>The business need is a consistent field workflow that reduces after-visit documentation without automating the inspection finding or enforcement decision.</p></div>
             </div>
             <div class="friendly-flow" aria-label="Business scenario sequence for environmental health field inspection with accelerator fit">
-              <div class="flow-node"><span>Before 1</span><strong>Plan visits</strong><p>Schedule pools using permits, history, complaints, and risk</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>Before 2</span><strong>Inspect facility</strong><p>The inspector records measurements, observations, and photos</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Plan visits</strong><p>Schedule pools using permits, history, complaints, and risk</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Inspect facility</strong><p>The inspector records measurements, observations, and photos</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node" data-accelerator="true"><span>Accelerator</span><strong>Process evidence</strong><p>AI extracts logs, labels, permits, and supporting documents</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>After 1</span><strong>Make finding</strong><p>The inspector validates evidence and applies cited requirements</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>After 2</span><strong>Correct and close</strong><p>Issue notice, track correction, reinspect, and close</p></div>
+              <div class="flow-node"><strong>Make finding</strong><p>The inspector validates evidence and applies cited requirements</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Correct and close</strong><p>Issue notice, track correction, reinspect, and close</p></div>
             </div>
             <div class="accelerator-stage">
               <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Partial fit: use Azure AI for evidence processing and Power Platform for the inspection workflow.</h2><p>Multi-modal Content Processing can extract structured values from uploaded logs, labels, permits, and supporting documents, but it is not a field-inspection application and does not provide offline checklists, measurements, signatures, inspection scheduling, notices, or reinspection. Those workflow capabilities belong in Power Apps and Power Automate around the accelerator.</p><p><strong>Reuse:</strong> the multimodal document and image-processing pattern, structured output, and review experience.</p><p><strong>Adapt:</strong> facility and permit data, environmental-health checklists, offline behavior, inspection evidence, code citations, Power Platform connectors, and the reinspection workflow.</p><p><strong>Keep outside:</strong> the inspector's finding, enforcement action, immediate closure decision, and any legal notice that requires authorized approval.</p></div>

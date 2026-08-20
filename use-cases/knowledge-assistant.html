@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js?v=5" defer></script>
+  <script src="/assets/site.js?v=6" defer></script>
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -37,11 +37,11 @@
               <div class="brief-block"><h2>Business need and data challenge</h2><p>Guidance is spread across national case definitions, state manuals, local procedures, laboratory interpretation guides, SharePoint sites, PDFs, and code-set documentation. Similar titles, superseded versions, and different effective dates create a risk of using the wrong rule.</p><p>The business need is rapid access to authoritative evidence with visible citations—not an automated classification decision.</p></div>
             </div>
             <div class="friendly-flow" aria-label="Business scenario sequence for the epidemiology knowledge assistant with accelerator fit">
-              <div class="flow-node"><span>Before 1</span><strong>Review case</strong><p>Lab, symptoms, vaccination, exposure, and jurisdiction</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>Before 2</span><strong>Frame decision</strong><p>Define the classification or follow-up question</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Review case</strong><p>Lab, symptoms, vaccination, exposure, and jurisdiction</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Frame decision</strong><p>Define the classification or follow-up question</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node" data-accelerator="true"><span>Accelerator</span><strong>Retrieve evidence</strong><p>AI returns current criteria and guidance with citations</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>After 1</span><strong>Determine case</strong><p>Authorized staff compare evidence and apply judgment</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>After 2</span><strong>Record actions</strong><p>Classification, rationale, and next steps enter the surveillance system</p></div>
+              <div class="flow-node"><strong>Determine case</strong><p>Authorized staff compare evidence and apply judgment</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><strong>Record actions</strong><p>Classification, rationale, and next steps enter the surveillance system</p></div>
             </div>
             <div class="accelerator-stage">
               <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Direct fit: use it between curated knowledge and the case decision.</h2><p>RAG chat with Azure AI Search directly matches the document-ingestion, hybrid-retrieval, citation, and question-answering needs in this scenario. It retrieves the relevant case-definition or protocol passages for comparison; it does not classify the case or replace the surveillance system's decision record.</p><p><strong>Reuse:</strong> document ingestion, hybrid search, cited answers, retrieval controls, and the conversational interface.</p><p><strong>Adapt:</strong> source metadata, jurisdiction and effective-date filters, security groups, content approval, evaluation questions, and the feedback workflow.</p><p><strong>Keep outside:</strong> protected case data, official classification, clinical interpretation, and the permanent decision record.</p></div>
