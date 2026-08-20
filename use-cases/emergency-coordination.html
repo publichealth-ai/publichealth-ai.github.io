@@ -17,10 +17,10 @@
   <link rel="stylesheet" href="/assets/styles.css">
   <script src="/assets/site.js" defer></script>
 </head>
-<body>
+<body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><div class="shell nav-row">
-    <a class="brand" href="/" aria-label="Public Health AI home"><span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Public Health AI</span></a>
+    <a class="brand" href="/" aria-label="Return to AI patterns for public health work"><span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>AI patterns for public health work.</span></a>
     <nav class="desktop-nav" aria-label="Primary navigation"><a href="/#use-cases">Use cases</a><a href="/#stories">Customer stories</a><a href="https://azure.github.io/ai-app-templates/?tags=azureopenai" target="_blank" rel="noopener noreferrer">Azure AI templates</a></nav>
     <button class="menu-button" id="open-menu" type="button" aria-haspopup="dialog" aria-controls="site-menu"><span>Explore</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
   </div></header>
@@ -35,7 +35,6 @@
         <article class="single-case-panel">
           <header class="single-case-header">
             <div><p class="detail-kicker">USE CASE 05 · DISEASE SURVEILLANCE · COMMUNITY HEALTH · PREPAREDNESS &amp; RESPONSE</p><h1>Public health emergency coordination</h1><p class="single-case-summary">Assemble a shared operational picture and draft coordinated plans across surveillance, clinical, logistics, communications, and partner teams.</p></div>
-            <aside class="template-card"><figure class="template-preview contain"><img src="https://azure.github.io/ai-app-templates/templates/images/healthcare-agent-orchestrator-image.png" alt="Healthcare Agent Orchestrator application preview"></figure><div class="template-card-body"><span>Related Azure AI App Template</span><strong>Healthcare Agent Orchestrator</strong><p>Coordinates specialized agents across healthcare data and multidisciplinary workflows; adaptation is required for incident management.</p><div class="template-actions"><a class="template-button" href="https://github.com/Azure-Samples/healthcare-agent-orchestrator" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/azure-samples/healthcare-agent-orchestrator/" target="_blank" rel="noopener noreferrer">View catalog entry</a></div></div></aside>
           </header>
           <div class="single-case-content">
             <div class="brief-row">
@@ -49,12 +48,16 @@
               <div class="flow-node"><span>04</span><strong>Approve</strong><p>Incident command reviews and authorizes</p></div><span class="flow-arrow" aria-hidden="true"></span>
               <div class="flow-node"><span>05</span><strong>Operate</strong><p>Assign actions, monitor, and update the plan</p></div>
             </div>
+            <div class="accelerator-stage">
+              <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Use it to coordinate bounded specialist analyses before command review.</h2><p>The Healthcare Agent Orchestrator provides the pattern for routing work to specialized agents and synthesizing their outputs. Adapt the agents to health intelligence, resources, logistics, geography, and communications; stop the workflow at a draft situation summary and action options for incident command approval.</p></div>
+              <aside class="template-card"><figure class="template-preview contain"><img src="https://azure.github.io/ai-app-templates/templates/images/healthcare-agent-orchestrator-image.png" alt="Healthcare Agent Orchestrator application preview"></figure><div class="template-card-body"><span>Related Azure AI App Template</span><strong>Healthcare Agent Orchestrator</strong><p>Coordinates specialized agents across healthcare data and multidisciplinary workflows; adaptation is required for incident management.</p><div class="template-actions"><a class="template-button" href="https://github.com/Azure-Samples/healthcare-agent-orchestrator" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a><a class="template-catalog-link" href="https://azure.github.io/ai-app-templates/repo/azure-samples/healthcare-agent-orchestrator/" target="_blank" rel="noopener noreferrer">View catalog entry</a></div></div></aside>
+            </div>
+            <div class="outcome-section">
+              <div><h2>Potential outcomes</h2><ul class="outcome-list"><li>Faster preparation of a shared, time-stamped operational picture.</li><li>Clearer resource gaps, assumptions, and unresolved dependencies.</li><li>More consistent planning cycles across state and local partners.</li></ul></div>
+              <div><h2>How this addresses the challenge</h2><p>Specialist agents preserve source timestamps and focus on bounded questions instead of blending every feed into one opaque recommendation. The orchestrator reconciles outputs into options, while command approval and decision logging preserve accountability.</p></div>
+            </div>
             <div class="workflow-application">
               <div><h2>How this applies across the broader workflow</h2><p>A weather agent summarizes forecast thresholds and affected time periods. A surveillance agent analyzes heat-related syndrome counts and rates from the syndromic platform. Resource and logistics agents compare cooling-center hours, staffing, water and transportation capacity, while a geographic analysis identifies neighborhoods with high exposure and limited access.</p><p>The orchestrator produces a draft situation summary with source timestamps, recommended questions, resource gaps, and alternative actions. Incident command validates the analysis, authorizes operational assignments, and records decisions. The next cycle incorporates updated ED visits, EMS demand, facility status, outreach completion, and public inquiries.</p></div>
-            </div>
-            <div class="compact-columns">
-              <div class="compact-column"><h2>Data challenges to resolve</h2><ul class="compact-list"><li>Different refresh cycles, geographic units, denominators, and thresholds across operational feeds.</li><li>Incomplete partner status, manual facility updates, and delayed confirmation of local actions.</li><li>Conflicting values that require source attribution, timestamps, assumptions, and uncertainty.</li></ul></div>
-              <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Require authorized approval for every operational action.</li><li>Show the source and age of material data.</li><li>Plan for missing feeds, contradictions, and network disruption.</li><li>Exercise the workflow before operational deployment.</li></ul></div>
             </div>
             <div class="reflection-panel"><h2>Reflection questions</h2><ul class="compact-list"><li>Which health, weather, capacity, and equity thresholds trigger activation or escalation, and how will the workflow distinguish a planning signal from an approved operational trigger?</li><li>Who owns each operational feed, expected refresh time, and data-quality check, and what alternate source will be used when local status or partner data is late or missing?</li><li>Which recommendations must remain advisory until command, clinical, communications, procurement, or legal approval, and how will those decisions and dissenting views be recorded?</li></ul></div>
           </div>
