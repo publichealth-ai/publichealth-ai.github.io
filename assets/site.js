@@ -341,7 +341,7 @@ const enhanceFlow = (flow, chartIndex) => {
       .append("text")
       .attr("class", "dynamic-flow-title")
       .attr("x", 14)
-      .attr("y", (item) => (item.step ? 45 : 27))
+      .attr("y", (item) => (item.step || item.accelerator ? 45 : 27))
       .text((item) => item.title);
 
     nodes
@@ -356,9 +356,9 @@ const enhanceFlow = (flow, chartIndex) => {
     nodes
       .append("foreignObject")
       .attr("x", 14)
-      .attr("y", (item) => (item.step ? 57 : 39))
+      .attr("y", (item) => (item.step || item.accelerator ? 57 : 39))
       .attr("width", nodeWidth - 28)
-      .attr("height", (item) => nodeHeight - (item.step ? 65 : 47))
+      .attr("height", (item) => nodeHeight - (item.step || item.accelerator ? 65 : 47))
       .append("xhtml:div")
       .attr("class", "dynamic-flow-copy")
       .text((item) => item.detail);
