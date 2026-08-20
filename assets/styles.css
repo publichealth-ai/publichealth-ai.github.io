@@ -351,13 +351,15 @@ button:focus-visible {
     url("https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Hero-public-health-service-688x528?wid=2400&hei=900&fit=crop&qlt=90");
   background-position: center;
   background-size: cover;
-  min-height: 100svh;
+  height: 50svh;
+  min-height: 420px;
 }
 
 .home-hero {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: 100svh;
+  height: 50svh;
+  min-height: 420px;
 }
 
 .hero-copy {
@@ -365,7 +367,7 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 88px clamp(24px, 5vw, 88px);
+  padding: 36px clamp(24px, 5vw, 88px);
   text-align: center;
 }
 
@@ -423,6 +425,7 @@ h1 {
 }
 
 .hero h1 {
+  font-size: clamp(44px, 5vw, 64px);
   letter-spacing: 0;
 }
 
@@ -1064,11 +1067,43 @@ h1 {
 
 .single-case-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
-  gap: 56px;
+  grid-template-columns: 1fr;
+  gap: 0;
   align-items: end;
   padding: clamp(32px, 5vw, 72px);
   border-bottom: 1px solid var(--cp-border);
+}
+
+.detail-page .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: block;
+  border-bottom: 1px solid var(--cp-border);
+  background: var(--cp-panel);
+  backdrop-filter: blur(16px);
+}
+
+.detail-page .nav-row {
+  min-height: 54px;
+  justify-content: center;
+}
+
+.detail-page .brand {
+  color: var(--cp-accent);
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.detail-page .brand-glyph,
+.detail-page .desktop-nav,
+.detail-page .menu-button {
+  display: none;
+}
+
+.detail-page .brand > span:last-child {
+  display: inline;
 }
 
 .single-case-header h1 {
@@ -1343,6 +1378,43 @@ h1 {
 
 .workflow-application p + p {
   margin-top: 12px;
+}
+
+.accelerator-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 430px);
+  gap: 56px;
+  align-items: center;
+  padding: 38px 0;
+  border-bottom: 1px solid var(--cp-border);
+}
+
+.accelerator-fit-copy h2,
+.outcome-section h2 {
+  margin: 0 0 12px;
+  color: var(--cp-accent);
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -0.025em;
+}
+
+.accelerator-fit-copy p,
+.outcome-section p {
+  margin: 0;
+  color: var(--cp-text-muted);
+  font-size: 15px;
+}
+
+.accelerator-fit-copy p + p,
+.outcome-section p + p {
+  margin-top: 12px;
+}
+
+.outcome-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  padding: 38px 0;
+  border-bottom: 1px solid var(--cp-border);
 }
 
 .reflection-panel {
@@ -1661,7 +1733,9 @@ h1 {
   }
 
   .single-case-header,
-  .brief-row {
+  .brief-row,
+  .accelerator-stage,
+  .outcome-section {
     grid-template-columns: 1fr;
     gap: 28px;
   }
@@ -1725,6 +1799,12 @@ h1 {
 
   .hero-copy {
     padding: 56px 20px;
+  }
+
+  .hero,
+  .home-hero {
+    height: auto;
+    min-height: 70svh;
   }
 
   .hero-media {
@@ -1795,7 +1875,9 @@ h1 {
 
   .brief-row,
   .compact-columns,
-  .workflow-application {
+  .workflow-application,
+  .accelerator-stage,
+  .outcome-section {
     grid-template-columns: 1fr;
     gap: 26px;
   }
