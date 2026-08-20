@@ -114,10 +114,14 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-const filterButtons = document.querySelectorAll("[data-case-filter]");
+const businessFilterButtons = document.querySelectorAll("[data-case-filter]");
+const technologyFilterButtons = document.querySelectorAll("[data-technology-filter]");
 const caseCards = document.querySelectorAll("[data-case-group]");
 const filterCount = document.getElementById("filter-count");
+const filterEmptyState = document.getElementById("filter-empty-state");
 const caseGrid = document.querySelector(".case-grid");
+let selectedBusinessFilter = "all";
+let selectedTechnologyFilter = "all";
 
 if (caseGrid && caseCards.length) {
   Array.from(caseCards)
@@ -141,28 +145,57 @@ if (storyGrid) {
     .forEach((card) => storyGrid.appendChild(card));
 }
 
-if (filterButtons.length && caseCards.length) {
-  const applyFilter = (filter) => {
+if (caseCards.length) {
+  const applyFilters = () => {
     let visible = 0;
 
     caseCards.forEach((card) => {
       const groups = card.dataset.caseGroup.split(/\s+/);
-      const show = filter === "all" || groups.includes(filter);
+      const technologies = card.dataset.technology.split(/\s+/);
+      const matchesBusiness =
+        selectedBusinessFilter === "all" || groups.includes(selectedBusinessFilter);
+      const matchesTechnology =
+        selectedTechnologyFilter === "all" || technologies.includes(selectedTechnologyFilter);
+      const show = matchesBusiness && matchesTechnology;
       card.hidden = !show;
       if (show) visible += 1;
     });
 
-    filterButtons.forEach((button) => {
-      button.setAttribute("aria-pressed", String(button.dataset.caseFilter === filter));
+    businessFilterButtons.forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.caseFilter === selectedBusinessFilter)
+      );
+    });
+
+    technologyFilterButtons.forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.technologyFilter === selectedTechnologyFilter)
+      );
     });
 
     if (filterCount) {
       filterCount.textContent = `${visible} ${visible === 1 ? "use case" : "use cases"}`;
     }
+
+    if (filterEmptyState) {
+      filterEmptyState.hidden = visible !== 0;
+    }
   };
 
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => applyFilter(button.dataset.caseFilter));
+  businessFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedBusinessFilter = button.dataset.caseFilter;
+      applyFilters();
+    });
+  });
+
+  technologyFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedTechnologyFilter = button.dataset.technologyFilter;
+      applyFilters();
+    });
   });
 }
 
