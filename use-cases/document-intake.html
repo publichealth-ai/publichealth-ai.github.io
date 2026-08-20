@@ -39,19 +39,23 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Scanned forms, faxes, PDFs, and laboratory attachments create intake delays and repetitive data entry. The goal is faster preparation for staff review—not autonomous case creation.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Case-report forms, laboratory PDFs, demographics, onset and report dates, provider and facility, specimen and result fields, plus source, confidence, reviewer, and audit metadata.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when the morning intake queue already has 400 reports.</h2><p>A surveillance intake coordinator sees structured ELR messages mixed with faxed case-report forms and PDF laboratory attachments. Investigators cannot start until the unstructured records are classified, abstracted, and matched to the right person or case.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>The bottleneck is not a lack of data; it is variation in format and quality. ELR may arrive as HL7 v2 or FHIR, eCR as CDA or FHIR, while provider forms arrive as low-resolution images with missing fields, handwriting, duplicate patients, and inconsistent dates.</p><p>The business need is to shorten receipt-to-assignment time without allowing uncertain extraction to become accepted surveillance data.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Capture</strong><p>Receive securely and retain the original.</p></div>
-              <div class="compact-step"><span>02</span><strong>Classify</strong><p>Select the correct document schema.</p></div>
-              <div class="compact-step"><span>03</span><strong>Extract</strong><p>Read fields with source and confidence.</p></div>
-              <div class="compact-step"><span>04</span><strong>Validate</strong><p>Staff confirm or correct the draft.</p></div>
-              <div class="compact-step"><span>05</span><strong>Load</strong><p>Post approved data and monitor quality.</p></div>
+            <div class="friendly-flow" aria-label="Case and laboratory document intake flow">
+              <div class="flow-node"><span>01</span><strong>Receive</strong><p>ELR, eCR, fax, PDF, or secure email</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Separate</strong><p>Structured messages vs. documents needing extraction</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Extract</strong><p>Patient, condition, dates, specimen, and result</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Validate</strong><p>Side-by-side review with confidence and source</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Post</strong><p>Approved record to the surveillance system</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>The interface first routes valid HL7 or FHIR messages through existing interoperability rules. Only fax and PDF content is sent to document classification and extraction. The model proposes fields such as patient name, date of birth, reportable condition, onset date, ordering provider, specimen date, LOINC-coded test, and result.</p><p>The original image and proposed values appear together in an intake work queue. Staff resolve duplicate-person matches, correct low-confidence fields, and approve the record before the surveillance platform creates or updates the case. Corrections become quality metrics for each sender, document type, and field.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Which fields delay assignment most often?</li><li>What confidence threshold should require manual review?</li><li>How will duplicate-person and duplicate-case matching be handled?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Prepare a faxed disease report for surveillance entry.</li><li>Associate a laboratory PDF with a case and propose specimen fields.</li><li>Process a historical backlog while separating low-confidence records.</li></ul></div>
-              <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Process protected health information only in approved environments.</li><li>Require authorized staff acceptance before finalizing a record.</li><li>Keep every value traceable to the original document.</li><li>Monitor correction rates by document type and field.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>HL7 v2 ELR, FHIR resources, eCR documents, case-report forms, and laboratory PDFs.</li><li>Master person matching, case deduplication, intake triage, abstraction, assignment, and quality monitoring.</li><li>Source file, sender, receipt time, field confidence, reviewer, correction reason, and audit history.</li></ul></div>
+              <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Process protected health information only in approved environments.</li><li>Require authorized staff acceptance before finalizing a record.</li><li>Keep every proposed value traceable to the original source.</li><li>Monitor correction rates by sender, document type, and field.</li></ul></div>
             </div>
           </div>
         </article>

@@ -39,18 +39,22 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Hotlines and program offices need fast, current answers while recognizing questions that require clinical, urgent, or program escalation. The assistant drafts; staff remain in control.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Approved FAQs, advisories, response scripts, referral directories, clinic information, translations, escalation rules, content dates, and de-identified interaction metrics.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when a parent calls after receiving a school exposure notice.</h2><p>The hotline specialist must explain what the notice means, identify symptoms that require clinical attention, describe testing or vaccination resources, and avoid giving advice beyond the health department's approved scope.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Answers depend on the condition, exposure date, jurisdiction, current advisory, age group, language, and available local services. FAQs and scripts may change quickly during an outbreak, while clinic hours and appointment capacity come from separate systems.</p><p>The business need is a fast, consistent staff draft with citations and an obvious escalation path for urgent or clinical questions.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Receive</strong><p>Capture a question from an approved channel.</p></div>
-              <div class="compact-step"><span>02</span><strong>Understand</strong><p>Identify topic, urgency, and language.</p></div>
-              <div class="compact-step"><span>03</span><strong>Retrieve</strong><p>Find the current approved response.</p></div>
-              <div class="compact-step"><span>04</span><strong>Review</strong><p>Staff verify, edit, or escalate the draft.</p></div>
-              <div class="compact-step"><span>05</span><strong>Improve</strong><p>Use unresolved questions to close gaps.</p></div>
+            <div class="friendly-flow" aria-label="Public inquiry response flow">
+              <div class="flow-node"><span>01</span><strong>Receive</strong><p>Phone, chat, email, or staff intake form</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Triage</strong><p>Topic, urgency, location, and language</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Retrieve</strong><p>Approved advisory, FAQ, and service data</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Review</strong><p>Specialist verifies the cited draft</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Respond</strong><p>Answer, refer, or escalate to a clinician</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>The assistant uses the exposure notice, approved outbreak FAQ, current health advisory, school or jurisdiction guidance, clinic directory, vaccine or testing service information, translated scripts, and escalation rules. It identifies the topic and urgency, then retrieves only current, approved content.</p><p>The specialist sees a draft response with citations and the date of each source. If the caller reports urgent symptoms, asks for clinical advice, or provides information that may represent a new case, the workflow routes the interaction to the nurse line, epidemiology program, or emergency channel and records the referral reason.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Which symptoms or phrases trigger immediate escalation?</li><li>Who owns each FAQ and translated script?</li><li>How will real-time clinic changes reach the response tool?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Draft a cited response about where a resident can obtain a vaccine.</li><li>Detect a potentially urgent exposure question and route it to staff.</li><li>Provide current intake and jurisdiction guidance for an environmental complaint.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>Exposure notices, advisories, FAQs, response scripts, clinic directories, service hours, translations, and escalation contacts.</li><li>Contact-center triage, intent classification, knowledge retrieval, staff review, referral, and content-gap review.</li><li>Question category, source version, staff edit, escalation reason, channel, and de-identified service metrics.</li></ul></div>
               <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Assign an owner and review date to every answer source.</li><li>Define explicit urgent and clinical escalation.</li><li>Use qualified human review for translated content.</li><li>Collect only the personal data required for the service.</li></ul></div>
             </div>
           </div>

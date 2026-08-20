@@ -39,18 +39,22 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Surveillance knowledge spans health departments, laboratories, healthcare partners, emergency management, and environmental programs. Staff need unified discovery while source owners retain control.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Reporting protocols, laboratory guidance, plans, technical standards, identity and security groups, source permissions, sensitivity, document versions, citations, and access audit records.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when a multijurisdictional foodborne cluster crosses three counties.</h2><p>A state informatician needs the current reporting protocol, laboratory submission instructions, interview guidance, partner roles, and escalation contacts. Each item is owned by a different program or agency with different access rules.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Partner knowledge lives in separate SharePoint libraries, Teams-connected sites, portals, and document repositories. Permissions may be inherited from Entra ID groups, while data-use agreements restrict who can see investigation or laboratory procedures.</p><p>The business need is unified discovery across authorized sources without copying restricted documents into a broadly accessible index.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Authenticate</strong><p>Verify identity, role, and agency.</p></div>
-              <div class="compact-step"><span>02</span><strong>Authorize</strong><p>Define the permitted search scope.</p></div>
-              <div class="compact-step"><span>03</span><strong>Retrieve</strong><p>Search only authorized sources.</p></div>
-              <div class="compact-step"><span>04</span><strong>Synthesize</strong><p>Preserve citations and ownership.</p></div>
-              <div class="compact-step"><span>05</span><strong>Audit</strong><p>Record access and route exceptions.</p></div>
+            <div class="friendly-flow" aria-label="Cross-agency surveillance knowledge hub flow">
+              <div class="flow-node"><span>01</span><strong>Sign in</strong><p>Identity, agency, role, and security groups</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Scope</strong><p>Apply document and repository permissions</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Search</strong><p>Query approved partner knowledge sources</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Synthesize</strong><p>Keep agency, owner, version, and citations</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Audit</strong><p>Record access and route restricted requests</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>The user signs in with organizational identity. SharePoint and source-system permissions determine which libraries, folders, and documents can be retrieved. The query searches authorized state reporting rules, local investigation SOPs, public health laboratory submission guides, emergency plans, and partner agreements.</p><p>The answer preserves each source's agency, document owner, effective date, and citation rather than blending requirements into one unattributed response. Restricted line lists, laboratory records, or case data stay in their systems of record; the hub can link authorized users to them but does not duplicate them into the knowledge index.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Which repositories are authoritative for each topic?</li><li>How are partner access groups granted and revoked?</li><li>What information must never enter the shared index?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Find current state and local reporting requirements with each source identified.</li><li>Retrieve related laboratory and environmental procedures across partners.</li><li>Search emergency plans while each agency retains its original records.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>SharePoint libraries, Teams-connected sites, reporting protocols, laboratory guides, plans, data-use agreements, Entra ID groups, and sensitivity labels.</li><li>Identity verification, authorization, semantic retrieval, citation, source-owner escalation, access review, and audit reporting.</li><li>Repository, document owner, version, permission group, sensitivity, citation, query, and access decision.</li></ul></div>
               <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Apply security before retrieval, not after generation.</li><li>Keep source owners responsible for permissions and currency.</li><li>Test that users cannot infer restricted content.</li><li>Align access logs with approved retention policy.</li></ul></div>
             </div>
           </div>

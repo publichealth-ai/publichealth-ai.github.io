@@ -39,18 +39,22 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Response teams must reconcile health signals, clinical capacity, staffing, supplies, communications, and partner status under time pressure. Agents can prepare bounded analyses; incident command retains authority.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Surveillance and laboratory signals, hospital capacity, staffing and supplies, weather, maps, facilities, partner status, plans, playbooks, incident logs, and after-action reports.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when a dangerous heat event is forecast as emergency visits begin to rise.</h2><p>The preparedness director must decide where to extend cooling-center hours, which neighborhoods need outreach, whether hospitals are under pressure, and what message should reach the public before the next operational briefing.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Relevant signals arrive at different speeds and geographic levels: National Weather Service forecasts, syndromic emergency-department data, EMS calls, hospital capacity, 211 requests, cooling-center status, transit access, and community partner updates.</p><p>The business need is a time-stamped common operating picture that exposes uncertainty and dependencies. It is not autonomous incident command.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Frame</strong><p>Set objectives, authority, and data snapshot.</p></div>
-              <div class="compact-step"><span>02</span><strong>Assess</strong><p>Run bounded specialist analyses.</p></div>
-              <div class="compact-step"><span>03</span><strong>Reconcile</strong><p>Expose gaps, conflicts, and dependencies.</p></div>
-              <div class="compact-step"><span>04</span><strong>Approve</strong><p>Command revises and authorizes actions.</p></div>
-              <div class="compact-step"><span>05</span><strong>Update</strong><p>Refresh data and record decisions.</p></div>
+            <div class="friendly-flow" aria-label="Public health emergency coordination flow">
+              <div class="flow-node"><span>01</span><strong>Sense</strong><p>Weather, health, EMS, facility, and community feeds</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Assess</strong><p>Health impact, capacity, geography, and equity</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Plan</strong><p>Resource, outreach, logistics, and message options</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Approve</strong><p>Incident command reviews and authorizes</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Operate</strong><p>Assign actions, monitor, and update the plan</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>A weather agent summarizes forecast thresholds and affected time periods. A surveillance agent analyzes heat-related syndrome counts and rates from the syndromic platform. Resource and logistics agents compare cooling-center hours, staffing, water and transportation capacity, while a geographic analysis identifies neighborhoods with high exposure and limited access.</p><p>The orchestrator produces a draft situation summary with source timestamps, recommended questions, resource gaps, and alternative actions. Incident command validates the analysis, authorizes operational assignments, and records decisions. The next cycle incorporates updated ED visits, EMS demand, facility status, outreach completion, and public inquiries.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Which thresholds trigger activation or escalation?</li><li>Who owns each operational feed and update schedule?</li><li>Which decisions require command, clinical, or legal approval?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Combine heat signals, forecasts, cooling centers, and outreach capacity.</li><li>Coordinate surveillance, laboratory, clinical, vaccination, and communications workstreams.</li><li>Identify service continuity and supply risks during severe weather.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>NWS forecasts, syndromic surveillance, EMS CAD, hospital capacity, 211 requests, GIS vulnerability layers, cooling-center inventory, and transit data.</li><li>Situation assessment, incident action planning, resource assignment, public information approval, operational briefing, and after-action review.</li><li>Source timestamp, operational period, assumption, decision owner, action status, and unresolved dependency.</li></ul></div>
               <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Require authorized approval for every operational action.</li><li>Show the source and age of material data.</li><li>Plan for missing feeds, contradictions, and network disruption.</li><li>Exercise the workflow before operational deployment.</li></ul></div>
             </div>
           </div>

@@ -39,18 +39,22 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Residents must navigate fragmented information about programs, locations, requirements, and schedules. A navigator combines approved guidance with live service data to provide a clear next step.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Service catalogs, eligibility guidance, required documents, clinic locations and hours, appointment availability, accessibility, language support, advisories, and approved service APIs.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when a resident needs a same-day public health service.</h2><p>They received a positive home test, do not have a regular provider, need a nearby clinic, and want to know whether an appointment, identification, insurance, or payment is required. The answer is spread across multiple pages and scheduling systems.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Stable program guidance and live operational data behave differently. Eligibility and preparation instructions may change monthly; clinic hours, appointment inventory, walk-in status, and temporary closures can change during the day.</p><p>The business need is a single service journey that combines approved guidance with current availability without exposing unnecessary personal data or offering clinical advice.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Understand</strong><p>Identify service, location, and access needs.</p></div>
-              <div class="compact-step"><span>02</span><strong>Retrieve</strong><p>Find current approved guidance.</p></div>
-              <div class="compact-step"><span>03</span><strong>Connect</strong><p>Call location or scheduling services.</p></div>
-              <div class="compact-step"><span>04</span><strong>Respond</strong><p>Give a plain-language next step.</p></div>
-              <div class="compact-step"><span>05</span><strong>Hand off</strong><p>Escalate urgent or uncertain requests.</p></div>
+            <div class="friendly-flow" aria-label="Public health service navigator flow">
+              <div class="flow-node"><span>01</span><strong>Understand</strong><p>Service, location, language, and access needs</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Retrieve</strong><p>Eligibility, preparation, and program guidance</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Locate</strong><p>Geocode and search nearby service sites</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Check</strong><p>Hours, capacity, appointments, and closures</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Guide</strong><p>Next step, directions, or human handoff</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>The navigator interprets the resident's request, preferred language, approximate location, and accessibility needs. It retrieves the approved program description and preparation instructions, then queries a service directory containing clinic type, address, hours, languages, accessibility features, eligibility, and jurisdiction.</p><p>If the resident wants to book, an appointment API returns current inventory without sending the conversation transcript. The navigator presents options, source dates, transportation or directions, and the correct contact. Urgent symptoms, clinical questions, or failed transactions move to a nurse line or service representative.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Which data must be live rather than indexed?</li><li>What minimum location information is needed?</li><li>Which journeys still require a person or non-digital channel?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Find a nearby testing location with current hours and requirements.</li><li>Show relevant vaccination services without making a clinical recommendation.</li><li>Explain locally applicable steps after a public health advisory.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>Service catalog, clinic directory, hours, appointment API, closure feed, geocoding, transit links, accessibility, and language availability.</li><li>Intent detection, eligibility lookup, location search, scheduling, confirmation, referral, and service-data stewardship.</li><li>Source owner, last-updated time, service area, capacity status, transaction ID, and handoff reason.</li></ul></div>
               <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Separate stable guidance from live availability data.</li><li>Do not diagnose or recommend treatment.</li><li>Test accessibility, language quality, and non-digital alternatives.</li><li>Provide a direct, transparent route to human assistance.</li></ul></div>
             </div>
           </div>

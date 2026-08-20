@@ -39,19 +39,23 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Staff lose time finding the right version of case definitions, protocols, reporting rules, and code sets. A cited retrieval assistant makes approved evidence easier to locate and compare.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Case definitions, surveillance manuals, investigation guides, advisories, code sets, FAQs, and metadata for owner, approval, effective date, jurisdiction, sensitivity, and source URL.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when an epidemiologist must classify a suspected measles case now.</h2><p>The laboratory result is available, but the investigator must compare the current case definition, vaccination history, symptom timeline, jurisdiction guidance, and required follow-up before deciding whether the case is suspect, probable, or confirmed.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>Guidance is spread across national case definitions, state manuals, local procedures, laboratory interpretation guides, SharePoint sites, PDFs, and code-set documentation. Similar titles, superseded versions, and different effective dates create a risk of using the wrong rule.</p><p>The business need is rapid access to authoritative evidence with visible citations—not an automated classification decision.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Curate</strong><p>Approve content and remove old versions.</p></div>
-              <div class="compact-step"><span>02</span><strong>Index</strong><p>Retain source metadata and permissions.</p></div>
-              <div class="compact-step"><span>03</span><strong>Retrieve</strong><p>Find relevant passages with hybrid search.</p></div>
-              <div class="compact-step"><span>04</span><strong>Respond</strong><p>Answer with citations and effective dates.</p></div>
-              <div class="compact-step"><span>05</span><strong>Improve</strong><p>Review gaps, feedback, and search quality.</p></div>
+            <div class="friendly-flow" aria-label="Epidemiology knowledge assistant flow">
+              <div class="flow-node"><span>01</span><strong>Ask</strong><p>Condition, jurisdiction, and investigation question</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Authorize</strong><p>Apply user role and source permissions</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Retrieve</strong><p>Hybrid search across approved versions</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Compare</strong><p>Show criteria, dates, and source passages</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Decide</strong><p>Epidemiologist applies professional judgment</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>The assistant indexes approved CDC or CSTE case definitions, state surveillance manuals, local investigation SOPs, vaccination guidance, and LOINC or SNOMED reference material. Metadata records the owner, jurisdiction, effective date, superseded date, audience, and security classification.</p><p>When the epidemiologist asks about the case, retrieval is constrained to authorized sources and returns exact passages for clinical criteria, laboratory evidence, epidemiologic linkage, and reporting actions. The investigator compares those passages with the case timeline and laboratory data, documents the rationale, and makes the official determination in the surveillance system.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Who approves content for operational use?</li><li>How quickly are superseded rules removed from retrieval?</li><li>Which questions require a program lead or medical director?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Retrieve current classification criteria before an epidemiologist decides case status.</li><li>Guide a new investigator through required interviews and specimens.</li><li>Find approved mappings between laboratory terminology and surveillance fields.</li></ul></div>
-              <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Search only content approved for operational use.</li><li>Show source, passage, owner, and effective date.</li><li>Apply role-based access before retrieval.</li><li>Do not finalize classifications or clinical actions.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>Case definitions, SOPs, investigation guides, advisories, LOINC, SNOMED CT, and jurisdiction-specific code sets.</li><li>Content approval, version control, indexing, retrieval evaluation, case classification, and decision documentation.</li><li>Owner, effective date, jurisdiction, security group, source URL, citation, and user feedback.</li></ul></div>
+              <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Search only content approved for operational use.</li><li>Show the source passage, owner, and effective date.</li><li>Apply role-based access before retrieval.</li><li>Do not finalize classification or clinical action.</li></ul></div>
             </div>
           </div>
         </article>

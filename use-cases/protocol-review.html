@@ -39,18 +39,22 @@
           </header>
           <div class="single-case-content">
             <div class="brief-row">
-              <div class="brief-block"><h2>Business need</h2><p>Draft protocols and agreements can contain missing, inconsistent, or superseded requirements. AI can prepare evidence and comparisons, but program, privacy, security, legal, accessibility, and records reviewers retain approval authority.</p></div>
-              <div class="brief-block"><h2>Data involved</h2><p>Protocols, standard procedures, data-use agreements, retention schedules, approved policy rules, document sections, versions, findings, owner responses, reviewer decisions, and final dispositions.</p></div>
+              <div class="brief-block scenario-hook"><h2>Imagine when a new respiratory surveillance feed is ready, but the operating protocol is not.</h2><p>The program manager must align data collection, access, retention, incident response, quality review, and partner responsibilities before governance reviewers will approve production use.</p></div>
+              <div class="brief-block"><h2>Business need and data challenge</h2><p>The evidence is distributed across the draft SOP, data-use agreement, system-security plan, records schedule, privacy requirements, accessibility standards, and earlier approved protocols. Definitions and control language may differ across documents or versions.</p><p>The business need is a traceable review package that highlights possible gaps and changed language. AI prepares evidence; qualified reviewers decide.</p></div>
             </div>
-            <div class="compact-workflow" aria-label="Operating workflow">
-              <div class="compact-step"><span>01</span><strong>Parse</strong><p>Extract document structure and version data.</p></div>
-              <div class="compact-step"><span>02</span><strong>Retrieve</strong><p>Find relevant approved rules and precedents.</p></div>
-              <div class="compact-step"><span>03</span><strong>Compare</strong><p>Highlight changed or missing language.</p></div>
-              <div class="compact-step"><span>04</span><strong>Review</strong><p>Qualified owners accept or reject findings.</p></div>
-              <div class="compact-step"><span>05</span><strong>Record</strong><p>Retain versions, evidence, and decisions.</p></div>
+            <div class="friendly-flow" aria-label="Surveillance policy and protocol review flow">
+              <div class="flow-node"><span>01</span><strong>Collect</strong><p>Draft, agreements, controls, and review standards</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>02</span><strong>Parse</strong><p>Sections, tables, definitions, and versions</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>03</span><strong>Compare</strong><p>Requirements, precedents, and changed language</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>04</span><strong>Review</strong><p>Program, privacy, security, legal, and records</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>05</span><strong>Approve</strong><p>Resolve findings and preserve the decision record</p></div>
+            </div>
+            <div class="workflow-application">
+              <div><h2>How this applies across the broader workflow</h2><p>The review workspace ingests the Word or PDF protocol, related data-use agreement, security controls, retention schedule, and approved predecessor documents. It extracts headings and defined terms, identifies referenced systems and roles, and compares provisions such as purpose, minimum necessary access, data quality, audit, incident response, retention, destruction, and termination.</p><p>Each potential issue is tied to the exact draft section and supporting source. Document owners respond in a review matrix, while privacy, security, legal, accessibility, records, and program reviewers accept, reject, or revise the finding. The final protocol, disposition log, and approval evidence remain separate records.</p></div>
+              <div><h2>Questions for your team</h2><ul class="compact-list"><li>Which review sources are authoritative and current?</li><li>Who owns each finding and final disposition?</li><li>How will unresolved risks block production release?</li></ul></div>
             </div>
             <div class="compact-columns">
-              <div class="compact-column"><h2>Applied scenarios</h2><ul class="compact-list"><li>Prepare a syndromic surveillance procedure for governance review.</li><li>Find missing purpose, retention, or termination language in a data-use agreement.</li><li>Compare protocol versions for changed thresholds, timelines, and responsibilities.</li></ul></div>
+              <div class="compact-column"><h2>Named data and processes</h2><ul class="compact-list"><li>SOPs, data-use agreements, security plans, privacy requirements, records schedules, accessibility standards, and approved precedents.</li><li>Governance intake, document parsing, control mapping, version comparison, review matrix, risk disposition, approval, and records retention.</li><li>Document section, source rule, severity, rationale, owner response, reviewer decision, version, and final disposition.</li></ul></div>
               <div class="compact-column"><h2>Required guardrails</h2><ul class="compact-list"><li>Use only authoritative, versioned review sources.</li><li>Do not present AI output as legal approval or compliance certification.</li><li>Show the underlying document text and supporting rule.</li><li>Preserve reviewed drafts, findings, and approvals as separate records.</li></ul></div>
             </div>
           </div>
