@@ -325,7 +325,7 @@ const enhanceFlow = (flow, chartIndex) => {
       .append("rect")
       .attr("width", nodeWidth)
       .attr("height", nodeHeight)
-      .attr("rx", 8);
+      .attr("rx", 10);
 
     nodes
       .append("text")
