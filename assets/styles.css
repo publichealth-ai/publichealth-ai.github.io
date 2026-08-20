@@ -603,6 +603,13 @@ h1 {
   object-fit: contain;
 }
 
+.technology-button[data-technology-filter="m365-copilot"] img {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  margin: -9px -3px -9px -7px;
+}
+
 .technology-count {
   min-width: 20px;
   height: 20px;
