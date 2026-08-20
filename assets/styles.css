@@ -438,8 +438,13 @@ h1 {
 }
 
 .hero h1 {
+  background: var(--cp-brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   font-size: clamp(44px, 5vw, 64px);
   letter-spacing: 0;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-actions,
