@@ -276,7 +276,10 @@ const enhanceFlow = (flow, chartIndex) => {
       .insert("svg", ":first-child")
       .attr("viewBox", `0 0 ${width} ${height}`)
       .attr("role", "img")
-      .attr("aria-label", "Interactive workflow process map");
+      .attr(
+        "aria-label",
+        flow.getAttribute("aria-label") || "Business scenario sequence with accelerator fit"
+      );
 
     const marker = svg
       .append("defs")
