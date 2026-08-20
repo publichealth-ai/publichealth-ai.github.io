@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js?v=4" defer></script>
+  <script src="/assets/site.js?v=5" defer></script>
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -36,12 +36,12 @@
               <div class="brief-block scenario-hook"><h2>Imagine when a parent calls after receiving a school exposure notice.</h2><p>The hotline specialist must explain what the notice means, identify symptoms that require clinical attention, describe testing or vaccination resources, and avoid giving advice beyond the health department's approved scope.</p></div>
               <div class="brief-block"><h2>Business need and data challenge</h2><p>Answers depend on the condition, exposure date, jurisdiction, current advisory, age group, language, and available local services. FAQs and scripts may change quickly during an outbreak, while clinic hours and appointment capacity come from separate systems.</p><p>The business need is a fast, consistent staff draft with citations and an obvious escalation path for urgent or clinical questions.</p></div>
             </div>
-            <div class="friendly-flow" aria-label="Public inquiry response flow">
-              <div class="flow-node"><span>01</span><strong>Receive</strong><p>Phone, chat, email, or staff intake form</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>02</span><strong>Triage</strong><p>Topic, urgency, location, and language</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node" data-accelerator="true"><span>03</span><strong>Retrieve</strong><p>Approved advisory, FAQ, and service data</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>04</span><strong>Review</strong><p>Specialist verifies the cited draft</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>05</span><strong>Respond</strong><p>Answer, refer, or escalate to a clinician</p></div>
+            <div class="friendly-flow" aria-label="Business scenario sequence for public inquiry response with accelerator fit">
+              <div class="flow-node"><span>Before 1</span><strong>Inquiry arrives</strong><p>A parent calls after receiving a school exposure notice</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>Before 2</span><strong>Check urgency</strong><p>Staff identifies symptoms, topic, location, and language</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>Accelerator</span><strong>Draft response</strong><p>AI retrieves approved content and prepares a cited draft</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>After 1</span><strong>Verify answer</strong><p>Staff confirms scope, currency, and referral path</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>After 2</span><strong>Respond or refer</strong><p>Answer the parent or escalate clinical and urgent needs</p></div>
             </div>
             <div class="accelerator-stage">
               <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Direct fit: use it for intent, approved-answer retrieval, and the first response draft.</h2><p>The conversational-agent accelerator directly supports language understanding, custom question answering, RAG retrieval, and cited response generation after an inquiry enters the contact-center workflow. Existing escalation rules and staff review still determine whether the interaction is answered, referred, or sent to an urgent channel.</p><p><strong>Reuse:</strong> conversational language understanding, custom question answering, RAG retrieval, citations, and the chat experience.</p><p><strong>Adapt:</strong> public health intents, urgency triggers, approved multilingual content, contact-center integration, service lookups, and referral destinations.</p><p><strong>Keep outside:</strong> clinical triage, emergency dispatch, case creation, and any response that requires qualified human judgment.</p></div>

@@ -15,7 +15,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css">
-  <script src="/assets/site.js?v=4" defer></script>
+  <script src="/assets/site.js?v=5" defer></script>
 </head>
 <body class="detail-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -36,12 +36,12 @@
               <div class="brief-block scenario-hook"><h2>Imagine when a resident needs a same-day public health service.</h2><p>They received a positive home test, do not have a regular provider, need a nearby clinic, and want to know whether an appointment, identification, insurance, or payment is required. The answer is spread across multiple pages and scheduling systems.</p></div>
               <div class="brief-block"><h2>Business need and data challenge</h2><p>Stable program guidance and live operational data behave differently. Eligibility and preparation instructions may change monthly; clinic hours, appointment inventory, walk-in status, and temporary closures can change during the day.</p><p>The business need is a single service journey that combines approved guidance with current availability without exposing unnecessary personal data or offering clinical advice.</p></div>
             </div>
-            <div class="friendly-flow" aria-label="Public health service navigator flow">
-              <div class="flow-node"><span>01</span><strong>Understand</strong><p>Service, location, language, and access needs</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>02</span><strong>Retrieve</strong><p>Eligibility, preparation, and program guidance</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node" data-accelerator="true"><span>03</span><strong>Locate</strong><p>Geocode and search nearby service sites</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>04</span><strong>Check</strong><p>Hours, capacity, appointments, and closures</p></div><span class="flow-arrow" aria-hidden="true"></span>
-              <div class="flow-node"><span>05</span><strong>Guide</strong><p>Next step, directions, or human handoff</p></div>
+            <div class="friendly-flow" aria-label="Business scenario sequence for the public health service navigator with accelerator fit">
+              <div class="flow-node"><span>Before 1</span><strong>Resident asks</strong><p>A positive home test creates a same-day service need</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>Before 2</span><strong>Clarify need</strong><p>Gather service, location, language, and access needs</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node" data-accelerator="true"><span>Accelerator</span><strong>Find services</strong><p>Orchestrator combines guidance with live service availability</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>After 1</span><strong>Present options</strong><p>Show eligible nearby sites, requirements, and appointments</p></div><span class="flow-arrow" aria-hidden="true"></span>
+              <div class="flow-node"><span>After 2</span><strong>Complete journey</strong><p>Book, give directions, or hand off to staff</p></div>
             </div>
             <div class="accelerator-stage">
               <div class="accelerator-fit-copy"><p class="eyebrow">Where the accelerator fits</p><h2>Pattern fit: use its orchestrator across guidance and service systems.</h2><p>The Customer Chatbot accelerator demonstrates an orchestrator and specialized agents, but its sample domain is customer commerce rather than public health. Reuse the routing pattern after a resident states a need, then replace its product and policy agents with public health knowledge, location, eligibility, and service agents connected to approved directories and appointment APIs.</p><p><strong>Reuse:</strong> the orchestrator, specialized-agent pattern, grounded policy answers, conversation history, and web interface.</p><p><strong>Adapt:</strong> statewide service taxonomy, local provider directory, location search, appointment APIs, accessibility data, language support, and handoff rules.</p><p><strong>Keep outside:</strong> clinical advice, final eligibility decisions, emergency response, and identity data not required for the requested service.</p></div>
