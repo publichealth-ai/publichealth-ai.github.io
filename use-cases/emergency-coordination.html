@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A multi-agent planning pattern for coordinated public health emergency response across surveillance, clinical, logistics, and partner teams.">
+  <link rel="icon" href="data:,">
+  <title>Public Health Emergency Coordination | Public Health AI</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="shell nav-row">
+    <a class="brand" href="/" aria-label="Public Health AI home"><span class="brand-glyph" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Public Health AI</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="/#use-cases">Use cases</a><a href="/#stories">Customer stories</a><a href="https://www.microsoft.com/en-us/ai/government/public-health-social-services" target="_blank" rel="noopener noreferrer">Microsoft public health</a></nav>
+    <button class="menu-button" id="open-menu" type="button" aria-haspopup="dialog" aria-controls="site-menu"><span>Explore</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+  </div></header>
+  <dialog class="site-menu" id="site-menu" aria-label="Site navigation"><div class="menu-shell">
+    <div class="menu-top"><span class="menu-title">Public Health AI</span><button class="menu-close" id="close-menu" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button></div>
+    <div class="menu-grid"><a class="menu-home" href="/">Home</a><nav class="menu-links" aria-label="Use cases"><a href="/use-cases/document-intake.html">Case and laboratory document intake</a><a href="/use-cases/knowledge-assistant.html">Epidemiology knowledge assistant</a><a href="/use-cases/inquiry-response.html">Public inquiry response assistant</a><a href="/use-cases/service-navigator.html">Public health service navigator</a><a href="/use-cases/emergency-coordination.html">Public health emergency coordination</a><a href="/use-cases/knowledge-hub.html">Cross-agency surveillance knowledge hub</a><a href="/use-cases/protocol-review.html">Surveillance policy and protocol review</a></nav></div>
+  </div></dialog>
+
+  <main id="main">
+    <section class="detail-hero"><div class="shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Use case 05</span></nav>
+      <div class="detail-hero-grid">
+        <div><p class="detail-kicker">USE CASE 05</p><h1>Public health emergency coordination</h1><p class="detail-summary">Assemble a shared operational picture and draft coordinated plans across surveillance, clinical, logistics, communications, and partner teams.</p></div>
+        <aside class="accelerator-box"><span>Matched code accelerator</span><strong>Emergency Response Agent</strong><a class="text-link" href="https://github.com/msftsean/ai-hackathon-use-cases/tree/main/Emergency-Response-Agent" target="_blank" rel="noopener noreferrer">Open GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a></aside>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="shell content-grid reveal">
+      <div><p class="eyebrow">Business need</p><h2>Coordinate faster without automating command.</h2></div>
+      <div class="content-copy">
+        <p>Public health emergencies require rapid synthesis of health signals, partner status, clinical capacity, staffing, supplies, communications, and environmental conditions. Teams often build separate views and reconcile them during high-pressure operational periods.</p>
+        <p>A multi-agent pattern can assign bounded analysis tasks to specialist components and assemble a draft response plan. Incident command and accountable leaders review assumptions, resolve conflicts, approve actions, and remain responsible for all operational decisions.</p>
+        <ul class="outcome-list"><li>Faster preparation of shared situation and resource views</li><li>Explicit dependencies, assumptions, and unresolved decisions</li><li>More consistent updates across operational planning cycles</li></ul>
+      </div>
+    </div></section>
+
+    <section class="section light-blue"><div class="shell">
+      <div class="section-heading reveal"><p class="eyebrow">Data involved</p><h2>Build from authoritative operational feeds.</h2></div>
+      <div class="data-grid">
+        <article class="data-card reveal"><h3>Health intelligence</h3><p>Surveillance trends, laboratory signals, emergency visits, hospital capacity, mortality, vulnerable-population indicators, and geographic patterns.</p></article>
+        <article class="data-card reveal"><h3>Operations</h3><p>Staffing, supplies, vaccines or medications, clinics, shelters, transportation, partner status, communications channels, and mutual-aid resources.</p></article>
+        <article class="data-card reveal"><h3>Context and history</h3><p>Weather, environmental hazards, jurisdiction maps, plans, playbooks, prior incident logs, after-action reports, and decision records.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section process-section"><div class="shell">
+      <p class="eyebrow">Operating process</p><h2>Use agents as bounded planning roles.</h2>
+      <div class="process-rail">
+        <article class="process-step reveal"><span>01</span><h3>Frame</h3><p>Define the operational period, objectives, decision authority, and trusted data snapshot.</p></article>
+        <article class="process-step reveal"><span>02</span><h3>Assess</h3><p>Run bounded health, resource, logistics, communications, and equity analyses.</p></article>
+        <article class="process-step reveal"><span>03</span><h3>Reconcile</h3><p>Identify conflicting assumptions, dependencies, gaps, and decisions required.</p></article>
+        <article class="process-step reveal"><span>04</span><h3>Approve</h3><p>Incident command reviews the draft and authorizes, rejects, or revises actions.</p></article>
+        <article class="process-step reveal"><span>05</span><h3>Update</h3><p>Record decisions, refresh data, and generate the next operational-period draft.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section light-blue scenario-section"><div class="shell">
+      <p class="eyebrow">Applied scenarios</p><h2>Events that benefit from coordinated synthesis.</h2>
+      <div class="scenario-grid">
+        <article class="scenario-card reveal"><span>SCENARIO 01</span><h3>Heat emergency</h3><p>Teams combine health signals, weather, cooling-center capacity, outreach resources, and transportation access for command review.</p></article>
+        <article class="scenario-card reveal"><span>SCENARIO 02</span><h3>Large outbreak</h3><p>Surveillance, laboratory, clinical, vaccination, communications, and partner workstreams contribute to a single draft action plan.</p></article>
+        <article class="scenario-card reveal"><span>SCENARIO 03</span><h3>Severe weather disruption</h3><p>The plan highlights facility closures, supply risks, continuity needs, and populations that may lose access to essential services.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section guardrail-section"><div class="shell">
+      <p class="eyebrow">Implementation guardrails</p><h2>Protect command accountability.</h2>
+      <div class="guardrail-grid">
+        <article class="guardrail reveal"><span class="guardrail-mark">1</span><div><h3>Human authorization</h3><p>No resource movement, alert, public message, or operational action should execute without authorized approval.</p></div></article>
+        <article class="guardrail reveal"><span class="guardrail-mark">2</span><div><h3>Time-stamped evidence</h3><p>Show the data snapshot, source, and age behind every material planning statement.</p></div></article>
+        <article class="guardrail reveal"><span class="guardrail-mark">3</span><div><h3>Failure modes</h3><p>Plan for missing feeds, contradictory information, stale data, model unavailability, and network disruption.</p></div></article>
+        <article class="guardrail reveal"><span class="guardrail-mark">4</span><div><h3>Exercise before use</h3><p>Validate roles, escalation, outputs, and failure behavior through drills before operational deployment.</p></div></article>
+      </div>
+    </div></section>
+
+    <section class="section navy"><div class="shell detail-cta">
+      <div><h2>Adapt the multi-agent planning pattern.</h2><p>The accelerator includes specialist agents, weather integration, resource coordination, scenario simulation, and an orchestration layer. Replace example agencies and resources with your incident structure and approved data feeds.</p></div>
+      <div class="cta-actions"><a class="button" href="https://github.com/msftsean/ai-hackathon-use-cases/tree/main/Emergency-Response-Agent" target="_blank" rel="noopener noreferrer">Open accelerator <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M10 14 19 5M19 14v5H5V5h5"></path></svg></a></div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-row"><span>Public Health AI Use Cases</span><div class="footer-links"><a href="/use-cases/service-navigator.html">Previous use case</a><a href="/">Home</a><a href="/use-cases/knowledge-hub.html">Next use case</a></div></div></footer>
+</body>
+</html>
