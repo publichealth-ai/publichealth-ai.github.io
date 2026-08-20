@@ -438,7 +438,12 @@ h1 {
 }
 
 .hero h1 {
-  background: var(--cp-brand-gradient);
+  background: linear-gradient(
+    110deg,
+    var(--cp-accent) 0%,
+    var(--cp-link) 52%,
+    var(--cp-attention-start) 100%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
