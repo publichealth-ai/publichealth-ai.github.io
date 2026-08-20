@@ -95,44 +95,51 @@
           <h2>Start with the workflow, not the technology.</h2>
           <p>Each page connects a public health outcome to the data and operating process needed to apply it responsibly.</p>
         </div>
+        <div class="filter-bar reveal" aria-label="Filter use cases">
+          <button class="filter-button" type="button" data-case-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-case-filter="surveillance" aria-pressed="false">Surveillance &amp; informatics</button>
+          <button class="filter-button" type="button" data-case-filter="community" aria-pressed="false">Community services</button>
+          <button class="filter-button" type="button" data-case-filter="preparedness" aria-pressed="false">Preparedness &amp; governance</button>
+          <span class="filter-count" id="filter-count" aria-live="polite">7 use cases</span>
+        </div>
         <div class="case-grid">
-          <a class="case-card reveal" href="/use-cases/document-intake.html">
+          <a class="case-card reveal" data-case-group="surveillance" href="/use-cases/document-intake.html">
             <span class="case-number">01</span>
             <h3>Case and laboratory document intake</h3>
             <p>Classify incoming reports, extract surveillance fields, and route uncertain values for review.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" href="/use-cases/knowledge-assistant.html">
+          <a class="case-card reveal" data-case-group="surveillance" href="/use-cases/knowledge-assistant.html">
             <span class="case-number">02</span>
             <h3>Epidemiology knowledge assistant</h3>
             <p>Find cited answers across case definitions, protocols, code sets, and program guidance.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" href="/use-cases/inquiry-response.html">
+          <a class="case-card reveal" data-case-group="community" href="/use-cases/inquiry-response.html">
             <span class="case-number">03</span>
             <h3>Public inquiry response assistant</h3>
             <p>Give contact-center and program staff consistent, citation-backed response drafts.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" href="/use-cases/service-navigator.html">
+          <a class="case-card reveal" data-case-group="community" href="/use-cases/service-navigator.html">
             <span class="case-number">04</span>
             <h3>Public health service navigator</h3>
             <p>Help residents find clinics, testing, vaccination, alerts, and local health services.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" href="/use-cases/emergency-coordination.html">
+          <a class="case-card reveal" data-case-group="preparedness" href="/use-cases/emergency-coordination.html">
             <span class="case-number">05</span>
             <h3>Public health emergency coordination</h3>
             <p>Draft coordinated plans across surveillance, clinical, logistics, and partner teams.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" href="/use-cases/knowledge-hub.html">
+          <a class="case-card reveal" data-case-group="surveillance" href="/use-cases/knowledge-hub.html">
             <span class="case-number">06</span>
             <h3>Cross-agency surveillance knowledge hub</h3>
             <p>Search partner guidance while enforcing the permissions attached to each source.</p>
             <span class="case-link">View use case <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
           </a>
-          <a class="case-card reveal" href="/use-cases/protocol-review.html">
+          <a class="case-card reveal" data-case-group="preparedness" href="/use-cases/protocol-review.html">
             <span class="case-number">07</span>
             <h3>Surveillance policy and protocol review</h3>
             <p>Find missing or inconsistent requirements before formal program and governance review.</p>
@@ -245,7 +252,7 @@
       <span>Public Health AI Use Cases</span>
       <div class="footer-links">
         <a href="https://www.microsoft.com/en-us/ai/government/public-health-social-services" target="_blank" rel="noopener noreferrer">Microsoft public health</a>
-        <a href="https://github.com/msftsean/ai-hackathon-use-cases" target="_blank" rel="noopener noreferrer">Source accelerators</a>
+        <a href="https://azure.github.io/ai-app-templates/?tags=azureopenai" target="_blank" rel="noopener noreferrer">Azure AI App Templates</a>
       </div>
     </div>
   </footer>
