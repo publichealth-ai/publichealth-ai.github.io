@@ -16,7 +16,166 @@ document.querySelectorAll(".story-card img").forEach((image) => {
   image.decoding = "async";
 });
 
+const canTrackPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+const bindCursorGradient = (control) => {
+  if (!canTrackPointer || control.dataset.cursorGradientBound === "true") return;
+  control.dataset.cursorGradientBound = "true";
+  let pointerFrame;
+
+  const updatePointer = (event) => {
+    window.cancelAnimationFrame(pointerFrame);
+    pointerFrame = window.requestAnimationFrame(() => {
+      const bounds = control.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+      const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+      control.style.setProperty("--pointer-x", `${Math.max(0, Math.min(100, x))}%`);
+      control.style.setProperty("--pointer-y", `${Math.max(0, Math.min(100, y))}%`);
+    });
+  };
+
+  control.addEventListener("pointerenter", updatePointer);
+  control.addEventListener("pointermove", updatePointer);
+  control.addEventListener("pointerleave", () => {
+    control.style.setProperty("--pointer-x", "50%");
+    control.style.setProperty("--pointer-y", "50%");
+  });
+};
+
+const setCursorGradient = (control, enabled) => {
+  control.classList.toggle("cursor-gradient", enabled);
+  if (enabled) bindCursorGradient(control);
+};
+
+document.querySelectorAll(".button, .template-button").forEach((control) => {
+  setCursorGradient(control, window.getComputedStyle(control).backgroundImage !== "none");
+});
+
+const syncSelectedFilterGradients = () => {
+  document.querySelectorAll(".filter-button").forEach((button) => {
+    setCursorGradient(button, button.getAttribute("aria-pressed") === "true");
+  });
+};
+
+syncSelectedFilterGradients();
+
 const prefetchedPages = new Set();
+
+const questionsButtonMarkup = `
+  Questions?
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"></path></svg>
+`;
+const questionsPanelMarkup = `
+  <aside class="questions-panel" id="questions-panel" role="dialog" aria-modal="true" aria-labelledby="questions-title" hidden>
+    <button class="questions-close" id="questions-close" type="button" aria-label="Close questions panel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+    </button>
+    <p class="questions-eyebrow">FAQ</p>
+    <h2 id="questions-title">Questions?</h2>
+    <ul class="questions-list">
+      <li>Can't find what you're looking for?</li>
+      <li>Unsure which use case fits your mission?</li>
+      <li>Want to discuss a technical proof of concept?</li>
+    </ul>
+    <p class="questions-contact-line">Reach out to <strong>Supawit Ket-udom</strong>, Industry Director, Public Health, Microsoft.</p>
+    <p class="questions-contact-links">
+      <a href="mailto:supaketu@microsoft.com">Email</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://www.linkedin.com/in/supawitket/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+  </aside>
+`;
+
+if (!document.getElementById("questions-trigger") && document.body.classList.contains("detail-page")) {
+  const trigger = document.createElement("button");
+  trigger.className = "questions-trigger";
+  trigger.id = "questions-trigger";
+  trigger.type = "button";
+  trigger.setAttribute("aria-expanded", "false");
+  trigger.setAttribute("aria-controls", "questions-panel");
+  trigger.innerHTML = questionsButtonMarkup;
+  document.querySelector(".detail-page .site-header .nav-row")?.appendChild(trigger);
+}
+
+if (!document.getElementById("questions-panel")) {
+  document.body.insertAdjacentHTML("beforeend", questionsPanelMarkup);
+}
+
+const questionsTrigger = document.getElementById("questions-trigger");
+const questionsPanel = document.getElementById("questions-panel");
+const questionsClose = document.getElementById("questions-close");
+
+if (questionsTrigger && questionsPanel && questionsClose) {
+  const questionMotionDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? 0
+    : 240;
+  let closeTimer;
+  const setPageInert = (inert) => {
+    Array.from(document.body.children)
+      .filter((element) => element !== questionsPanel && element.tagName !== "SCRIPT")
+      .forEach((element) => {
+        element.inert = inert;
+      });
+  };
+
+  const setQuestionsOpen = (open, restoreFocus = false) => {
+    window.clearTimeout(closeTimer);
+    questionsTrigger.setAttribute("aria-expanded", String(open));
+
+    if (open) {
+      document.body.classList.add("questions-open");
+      setPageInert(true);
+      questionsPanel.hidden = false;
+      window.requestAnimationFrame(() => questionsPanel.classList.add("is-open"));
+      questionsClose.focus();
+      return;
+    }
+
+    questionsPanel.classList.remove("is-open");
+    closeTimer = window.setTimeout(() => {
+      questionsPanel.hidden = true;
+      document.body.classList.remove("questions-open");
+      setPageInert(false);
+      if (restoreFocus) questionsTrigger.focus();
+    }, questionMotionDuration);
+  };
+
+  questionsTrigger.addEventListener("click", () => {
+    setQuestionsOpen(questionsPanel.hidden || !questionsPanel.classList.contains("is-open"));
+  });
+  questionsClose.addEventListener("click", () => setQuestionsOpen(false, true));
+  document.addEventListener("pointerdown", (event) => {
+    if (
+      questionsPanel.hidden ||
+      questionsPanel.contains(event.target) ||
+      questionsTrigger.contains(event.target)
+    ) {
+      return;
+    }
+    setQuestionsOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !questionsPanel.hidden) {
+      setQuestionsOpen(false, true);
+      return;
+    }
+    if (event.key !== "Tab" || questionsPanel.hidden) return;
+
+    const focusable = Array.from(
+      questionsPanel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+}
 
 document.querySelectorAll(".case-card[href]").forEach((card) => {
   card.addEventListener(
@@ -71,6 +230,73 @@ if (document.body.classList.contains("detail-page")) {
   });
 
   updateScrollState();
+}
+
+const caseContent = document.querySelector(".single-case-content");
+
+if (caseContent) {
+  const disclosureSections = [
+    {
+      selector: ".accelerator-stage",
+      label: "01",
+      title: "Where the accelerator fits"
+    },
+    {
+      selector: ".outcome-section",
+      label: "02",
+      title: "Outcomes and approach"
+    },
+    {
+      selector: ".workflow-application",
+      label: "03",
+      title: "How this applies across the workflow"
+    },
+    {
+      selector: ".reflection-panel",
+      label: "04",
+      title: "Reflection questions"
+    }
+  ];
+  const disclosureList = document.createElement("div");
+  disclosureList.className = "case-disclosures";
+  const firstDisclosureSection = caseContent.querySelector(".accelerator-stage");
+  firstDisclosureSection?.insertAdjacentElement("beforebegin", disclosureList);
+
+  disclosureSections.forEach(({ selector, label, title }, index) => {
+    const section = caseContent.querySelector(selector);
+    if (!section) return;
+
+    const details = document.createElement("details");
+    details.className = "case-disclosure reveal";
+    details.style.setProperty("--reveal-delay", `${index * 70}ms`);
+    const summary = document.createElement("summary");
+    summary.className = "case-disclosure-summary";
+    summary.innerHTML = `
+      <span class="case-disclosure-label">${label}</span>
+      <strong>${title}</strong>
+      <span class="case-disclosure-toggle" aria-hidden="true"></span>
+    `;
+
+    details.append(summary, section);
+    disclosureList.appendChild(details);
+
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+      disclosureList.querySelectorAll(".case-disclosure[open]").forEach((item) => {
+        if (item !== details) item.open = false;
+      });
+    });
+  });
+
+  [
+    document.querySelector(".single-case-header > div"),
+    ...caseContent.querySelectorAll(".brief-row > .brief-block")
+  ]
+    .filter(Boolean)
+    .forEach((item, index) => {
+      item.classList.add("reveal");
+      item.style.setProperty("--reveal-delay", `${index * 90}ms`);
+    });
 }
 
 const menu = document.getElementById("site-menu");
@@ -145,6 +371,12 @@ if (storyGrid) {
     .forEach((card) => storyGrid.appendChild(card));
 }
 
+[".case-grid .case-card", ".story-grid .story-card"].forEach((selector) => {
+  document.querySelectorAll(selector).forEach((card, index) => {
+    card.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+  });
+});
+
 if (caseCards.length) {
   const applyFilters = () => {
     let visible = 0;
@@ -182,6 +414,8 @@ if (caseCards.length) {
     if (filterEmptyState) {
       filterEmptyState.hidden = visible !== 0;
     }
+
+    syncSelectedFilterGradients();
   };
 
   businessFilterButtons.forEach((button) => {
@@ -251,20 +485,26 @@ const enhanceFlow = (flow, chartIndex) => {
   if (!data.length || !window.d3) return;
 
   const host = document.createElement("div");
-  host.className = "dynamic-flow";
+  host.className = "dynamic-flow dynamic-flow-enter";
   flow.insertAdjacentElement("afterend", host);
   flow.classList.add("is-enhanced");
 
   let resizeTimer;
+  let lastCompact;
 
   const render = () => {
-    host.querySelector("svg")?.remove();
     const compact = host.clientWidth < 680;
+    if (host.querySelector("svg") && compact === lastCompact) return;
+    lastCompact = compact;
+    host.querySelector("svg")?.remove();
     const width = compact ? 360 : 1000;
     const height = compact ? 660 : 178;
     const nodeWidth = compact ? 320 : 172;
     const nodeHeight = compact ? 104 : 116;
     const markerId = `flow-arrow-${chartIndex}`;
+    const flowGradientId = `flow-gradient-${chartIndex}`;
+    const acceleratorGradientId = `accelerator-gradient-${chartIndex}`;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const positions = data.map((item, index) => ({
       ...item,
       x: compact ? 20 : 10 + index * 202,
@@ -281,8 +521,8 @@ const enhanceFlow = (flow, chartIndex) => {
         flow.getAttribute("aria-label") || "Business scenario sequence with accelerator fit"
       );
 
-    const marker = svg
-      .append("defs")
+    const defs = svg.append("defs");
+    const marker = defs
       .append("marker")
       .attr("id", markerId)
       .attr("viewBox", "0 0 10 10")
@@ -291,6 +531,80 @@ const enhanceFlow = (flow, chartIndex) => {
       .attr("markerWidth", 6)
       .attr("markerHeight", 6)
       .attr("orient", "auto-start-reverse");
+
+    const flowGradient = defs
+      .append("linearGradient")
+      .attr("id", flowGradientId)
+      .attr("gradientUnits", "userSpaceOnUse")
+      .attr("spreadMethod", "repeat");
+
+    if (compact) {
+      flowGradient.attr("x1", 0).attr("x2", 0).attr("y1", -height / 2).attr("y2", 0);
+    } else {
+      flowGradient.attr("x1", -width / 2).attr("x2", 0).attr("y1", 0).attr("y2", 0);
+    }
+
+    [
+      ["0%", "#0b3a6e"],
+      ["48%", "#4da6ff"],
+      ["100%", "#0b3a6e"]
+    ].forEach(([offset, color]) => {
+      flowGradient.append("stop").attr("offset", offset).attr("stop-color", color);
+    });
+
+    if (!reduceMotion) {
+      const firstAxis = compact ? "y1" : "x1";
+      const secondAxis = compact ? "y2" : "x2";
+      const distance = compact ? height / 2 : width / 2;
+      flowGradient
+        .append("animate")
+        .attr("attributeName", firstAxis)
+        .attr("values", `${-distance};0`)
+        .attr("dur", "3.2s")
+        .attr("repeatCount", "indefinite");
+      flowGradient
+        .append("animate")
+        .attr("attributeName", secondAxis)
+        .attr("values", `0;${distance}`)
+        .attr("dur", "3.2s")
+        .attr("repeatCount", "indefinite");
+    }
+
+    const acceleratorGradient = defs
+      .append("linearGradient")
+      .attr("id", acceleratorGradientId)
+      .attr("x1", "-100%")
+      .attr("x2", "0%")
+      .attr("y1", "0%")
+      .attr("y2", "0%")
+      .attr("spreadMethod", "repeat");
+
+    [
+      ["0%", "#fff4c2"],
+      ["25%", "#ffe99a"],
+      ["50%", "#ffd54f"],
+      ["75%", "#ffe99a"],
+      ["100%", "#fff4c2"]
+    ].forEach(([offset, color]) => {
+      acceleratorGradient.append("stop").attr("offset", offset).attr("stop-color", color);
+    });
+
+    if (!reduceMotion) {
+      acceleratorGradient
+        .append("animate")
+        .attr("attributeName", "x1")
+        .attr("values", "-100%;0%")
+        .attr("dur", "4.8s")
+        .attr("calcMode", "linear")
+        .attr("repeatCount", "indefinite");
+      acceleratorGradient
+        .append("animate")
+        .attr("attributeName", "x2")
+        .attr("values", "0%;100%")
+        .attr("dur", "4.8s")
+        .attr("calcMode", "linear")
+        .attr("repeatCount", "indefinite");
+    }
 
     marker
       .append("path")
@@ -308,7 +622,9 @@ const enhanceFlow = (flow, chartIndex) => {
       .data(links)
       .join("path")
       .attr("class", "dynamic-flow-link")
+      .style("--flow-index", (_, index) => index)
       .attr("marker-end", `url(#${markerId})`)
+      .style("stroke", `url(#${flowGradientId})`)
       .attr("d", ({ source, target }) =>
         compact
           ? `M ${source.x + nodeWidth / 2} ${source.y + nodeHeight} L ${target.x + nodeWidth / 2} ${target.y - 6}`
@@ -322,13 +638,14 @@ const enhanceFlow = (flow, chartIndex) => {
       .join("g")
       .attr("class", (item) => `dynamic-flow-node${item.accelerator ? " is-accelerator" : ""}`)
       .attr("transform", (item) => `translate(${item.x},${item.y})`)
-      .attr("aria-label", (item) => `${item.step}. ${item.title}. ${item.detail}`);
+      .attr("aria-label", (item) => [item.step, item.title, item.detail].filter(Boolean).join(". "));
 
     nodes
       .append("rect")
       .attr("width", nodeWidth)
       .attr("height", nodeHeight)
-      .attr("rx", 10);
+      .attr("rx", 10)
+      .style("fill", (item) => (item.accelerator ? `url(#${acceleratorGradientId})` : null));
 
     nodes
       .append("text")
