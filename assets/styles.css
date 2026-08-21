@@ -115,6 +115,8 @@ html[data-theme="dark"] {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -252,6 +254,7 @@ button:focus-visible {
   font-weight: 800;
   letter-spacing: -0.01em;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .questions-trigger {
@@ -1717,6 +1720,7 @@ h1 {
   color: var(--cp-accent);
   font-weight: 750;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .case-nav a:hover {
@@ -3112,6 +3116,131 @@ h1 {
   .case-disclosure > .workflow-application,
   .case-disclosure > .reflection-panel {
     padding: 22px 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  .single-case {
+    padding: 24px 0 48px;
+  }
+
+  .single-case > .shell {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .single-case-panel {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .single-case-header {
+    min-height: 250px;
+    padding: 28px 18px;
+  }
+
+  .single-case-header h1 {
+    font-size: clamp(34px, 10vw, 44px);
+  }
+
+  .single-case-summary {
+    font-size: 17px;
+  }
+
+  .single-case-content {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .brief-row {
+    gap: 24px;
+    padding: 34px 0;
+  }
+
+  .brief-block:not(.scenario-hook) {
+    padding-left: 14px;
+    border-left-width: 2px;
+  }
+
+  .dynamic-flow {
+    padding: 22px 0 28px;
+    border-radius: 0;
+  }
+
+  .case-disclosures {
+    gap: 8px;
+    padding: 22px 0 30px;
+  }
+
+  .case-disclosure-summary {
+    grid-template-columns: max-content minmax(0, 1fr) 28px;
+    gap: 10px;
+    min-height: 64px;
+    padding: 12px 14px;
+  }
+
+  .case-disclosure-label {
+    grid-column: auto;
+  }
+
+  .case-disclosure-summary strong {
+    font-size: 17px;
+  }
+
+  .case-disclosure > .accelerator-stage,
+  .case-disclosure > .outcome-section,
+  .case-disclosure > .workflow-application,
+  .case-disclosure > .reflection-panel {
+    padding: 16px 12px;
+  }
+
+  .case-disclosure > .accelerator-stage .accelerator-fit-copy {
+    padding: 16px 14px;
+  }
+
+  .accelerator-stage {
+    gap: 16px;
+  }
+
+  .template-card-body {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-site-header .nav-row,
+  .detail-page .site-header .nav-row {
+    gap: 10px;
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-left: max(12px, env(safe-area-inset-left));
+  }
+
+  .home-brand,
+  .case-nav a {
+    font-size: 14px;
+  }
+
+  .case-nav {
+    gap: 5px;
+  }
+
+  .case-nav span:last-child {
+    font-size: 12px;
+  }
+
+  .questions-trigger {
+    min-height: 36px;
+    gap: 4px;
+    padding: 6px 9px;
+    font-size: 13px;
+  }
+
+  .questions-trigger svg {
+    width: 14px;
+    height: 14px;
   }
 }
 
