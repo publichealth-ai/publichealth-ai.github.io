@@ -70,8 +70,10 @@ const questionsPanelMarkup = `
     <button class="questions-close" id="questions-close" type="button" aria-label="Close questions panel">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
     </button>
-    <p class="questions-eyebrow">FAQ</p>
-    <h2 id="questions-title">Questions?</h2>
+    <p class="questions-eyebrow">Site update</p>
+    <h2 id="questions-title">Publishing in progress</h2>
+    <p class="questions-status">We're still working through publishing information on this site. Stay tuned, and reach out if you have questions in the meantime.</p>
+    <p class="questions-list-label">You may be wondering:</p>
     <ul class="questions-list">
       <li>Can't find what you're looking for?</li>
       <li>Unsure which use case fits your mission?</li>
@@ -175,6 +177,20 @@ if (questionsTrigger && questionsPanel && questionsClose) {
       first.focus();
     }
   });
+
+  const questionsNoticeKey = "public-health-ai-publishing-notice-v1";
+  let shouldAutoOpen = true;
+
+  try {
+    shouldAutoOpen = sessionStorage.getItem(questionsNoticeKey) !== "seen";
+    if (shouldAutoOpen) sessionStorage.setItem(questionsNoticeKey, "seen");
+  } catch {
+    // The notice still opens when session storage is unavailable.
+  }
+
+  if (shouldAutoOpen) {
+    window.setTimeout(() => setQuestionsOpen(true), questionMotionDuration ? 500 : 0);
+  }
 }
 
 document.querySelectorAll(".case-card[href]").forEach((card) => {
@@ -545,9 +561,9 @@ const enhanceFlow = (flow, chartIndex) => {
     }
 
     [
-      ["0%", "#0b3a6e"],
-      ["48%", "#4da6ff"],
-      ["100%", "#0b3a6e"]
+      ["0%", "#071f3b"],
+      ["48%", "#1877f2"],
+      ["100%", "#071f3b"]
     ].forEach(([offset, color]) => {
       flowGradient.append("stop").attr("offset", offset).attr("stop-color", color);
     });

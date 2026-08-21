@@ -67,37 +67,39 @@ html[data-theme="dark"] {
 :root,
 :root[data-theme="dark"] {
   color-scheme: light;
+  --cp-navy: #071f3b;
+  --cp-bright-blue: #1877f2;
   --cp-bg: #ffffff;
   --cp-bg-elevated: #eef6ff;
   --cp-surface: #ffffff;
   --cp-surface-soft: #dceeff;
   --cp-border: #b8d5f0;
-  --cp-border-strong: #0b3a6e;
+  --cp-border-strong: var(--cp-navy);
   --cp-text: #000000;
   --cp-text-muted: #18314f;
-  --cp-text-soft: #0b3a6e;
-  --cp-accent: #0b3a6e;
-  --cp-accent-hover: #071f3b;
+  --cp-text-soft: var(--cp-navy);
+  --cp-accent: var(--cp-navy);
+  --cp-accent-hover: #031323;
   --cp-accent-soft: #dceeff;
   --cp-accent-fg: #ffffff;
-  --cp-success: #0b3a6e;
+  --cp-success: var(--cp-navy);
   --cp-danger: #000000;
-  --cp-warning: #0b5cab;
-  --cp-link: #0b5cab;
+  --cp-warning: var(--cp-bright-blue);
+  --cp-link: var(--cp-bright-blue);
   --cp-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   --cp-overlay: rgba(0, 0, 0, 0.68);
   --cp-panel: rgba(255, 255, 255, 0.92);
   --cp-panel-strong: #ffffff;
   --cp-sheen: rgba(255, 255, 255, 0.62);
-  --cp-highlight: #dceeff;
+  --cp-highlight: rgba(24, 119, 242, 0.16);
   --cp-attention: #fff4c2;
   --cp-attention-start: #f5b700;
   --cp-attention-end: #e86a17;
   --cp-attention-border: #d65a00;
   --cp-wallpaper-tint: rgba(255, 255, 255, 0.68);
   --cp-wallpaper-tint-strong: rgba(255, 255, 255, 0.8);
-  --cp-brand-gradient: linear-gradient(135deg, var(--cp-accent), var(--cp-link));
-  --cp-brand-gradient-hover: linear-gradient(135deg, var(--cp-link), var(--cp-accent));
+  --cp-brand-gradient: linear-gradient(135deg, var(--cp-bright-blue), var(--cp-navy));
+  --cp-brand-gradient-hover: linear-gradient(135deg, var(--cp-navy), var(--cp-bright-blue));
   --cp-radius-sm: 8px;
   --cp-radius-md: 10px;
   --cp-radius-lg: 12px;
@@ -222,7 +224,7 @@ button:focus-visible {
   display: block;
   overflow: hidden;
   border-bottom: 1px solid var(--cp-border);
-  background: var(--cp-panel);
+  background: rgba(7, 31, 59, 0.88);
 }
 
 .home-site-header::before {
@@ -231,8 +233,13 @@ button:focus-visible {
   z-index: -1;
   inset: -18px;
   background-image:
-    linear-gradient(var(--cp-wallpaper-tint-strong), var(--cp-wallpaper-tint-strong)),
-    url("/assets/hero-public-health.jpeg");
+    linear-gradient(
+      90deg,
+      rgba(24, 119, 242, 0.86),
+      rgba(24, 119, 242, 0.68),
+      rgba(7, 31, 59, 0.9)
+    ),
+    url("/assets/hero-public-health-analyst.jpeg");
   background-position: center 38%;
   background-size: cover;
   filter: blur(10px);
@@ -249,7 +256,8 @@ button:focus-visible {
 }
 
 .home-brand {
-  color: var(--cp-accent);
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(7, 31, 59, 0.34);
   font-size: 15px;
   font-weight: 800;
   letter-spacing: -0.01em;
@@ -263,11 +271,11 @@ button:focus-visible {
   align-items: center;
   gap: 7px;
   padding: 7px 12px;
-  border: 1px solid var(--cp-border);
+  border: 1px solid rgba(255, 255, 255, 0.54);
   border-radius: var(--cp-radius-md);
-  background: var(--cp-surface);
-  color: var(--cp-accent);
-  box-shadow: 0 2px 8px rgba(11, 58, 110, 0.08);
+  background: rgba(7, 31, 59, 0.18);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(7, 31, 59, 0.22);
   cursor: pointer;
   font-size: 14px;
   font-weight: 750;
@@ -280,9 +288,9 @@ button:focus-visible {
 
 .questions-trigger:hover,
 .questions-trigger[aria-expanded="true"] {
-  border-color: var(--cp-link);
-  background: var(--cp-bg-elevated);
-  box-shadow: 0 8px 20px var(--cp-highlight);
+  border-color: #ffffff;
+  background: rgba(24, 119, 242, 0.28);
+  box-shadow: 0 8px 24px rgba(24, 119, 242, 0.32);
   transform: translateY(-1px);
 }
 
@@ -390,6 +398,20 @@ button:focus-visible {
   margin: 14px 0 0;
   padding-left: 18px;
   color: var(--cp-text);
+}
+
+.questions-status {
+  margin: 12px 0 0;
+  color: var(--cp-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.questions-list-label {
+  margin: 14px 0 0;
+  color: var(--cp-text);
+  font-size: 12px;
+  font-weight: 750;
 }
 
 .questions-list li {
@@ -620,14 +642,7 @@ button:focus-visible {
   margin-left: calc(50% - 50vw);
   overflow: hidden;
   background-color: var(--cp-bg-elevated);
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.82) 48%,
-      rgba(255, 255, 255, 0.54) 100%
-    ),
-    url("/assets/hero-public-health.jpeg");
+  background-image: url("/assets/hero-public-health-analyst.jpeg");
   background-position: center 38%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -637,7 +652,7 @@ button:focus-visible {
 
 .home-hero {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
   height: 50svh;
   min-height: 420px;
 }
@@ -645,10 +660,10 @@ button:focus-visible {
 .hero-copy {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 36px clamp(24px, 5vw, 88px);
-  text-align: center;
+  text-align: left;
 }
 
 .hero-media {
@@ -699,23 +714,18 @@ h1 {
 .hero-intro {
   max-width: 660px;
   margin: 24px 0 0;
-  color: var(--cp-text-muted);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.72);
   font-size: clamp(18px, 2vw, 22px);
-  text-align: center;
+  text-align: left;
 }
 
 .hero h1 {
-  background: linear-gradient(
-    112deg,
-    #071f3b 0%,
-    var(--cp-accent) 38%,
-    var(--cp-link) 68%,
-    #4f46e5 100%
-  );
+  background: linear-gradient(112deg, #ffffff 0%, #dceeff 52%, var(--cp-bright-blue) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 5px 10px rgba(7, 31, 59, 0.2));
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.58));
   font-size: clamp(44px, 5vw, 64px);
   letter-spacing: 0;
   -webkit-text-fill-color: transparent;
@@ -728,6 +738,10 @@ h1 {
   justify-content: center;
   gap: 12px;
   margin-top: 32px;
+}
+
+.hero .hero-actions {
+  justify-content: flex-start;
 }
 
 .hero-attribution {
@@ -778,6 +792,16 @@ h1 {
 
 .button.secondary:hover {
   background: var(--cp-surface-soft);
+}
+
+.hero .button.secondary {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.hero .button.secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .cursor-gradient {
@@ -1059,7 +1083,7 @@ h1 {
   flex: 0 0 124px;
   margin: -26px -26px 18px;
   background-image:
-    linear-gradient(rgba(11, 58, 110, 0.08), rgba(11, 58, 110, 0.2)),
+    linear-gradient(rgba(24, 119, 242, 0.08), rgba(7, 31, 59, 0.24)),
     var(--case-card-image);
   background-position: center;
   background-size: cover;
@@ -1606,7 +1630,7 @@ h1 {
   padding: clamp(40px, 5vw, 64px);
   border-bottom: 1px solid var(--cp-border);
   background: var(--cp-accent);
-  color: var(--cp-accent-fg);
+  color: #ffffff;
 }
 
 .single-case-header::before,
@@ -1630,9 +1654,9 @@ h1 {
   background:
     linear-gradient(
       90deg,
-      rgba(7, 31, 59, 0.96) 0%,
-      rgba(11, 58, 110, 0.86) 56%,
-      rgba(11, 58, 110, 0.46) 100%
+      rgba(24, 119, 242, 0.82) 0%,
+      rgba(24, 119, 242, 0.66) 50%,
+      rgba(7, 31, 59, 0.9) 100%
     );
 }
 
@@ -1644,11 +1668,12 @@ h1 {
 }
 
 .single-case-header .detail-kicker {
-  color: var(--cp-attention);
+  color: #fff4c2;
 }
 
 .single-case-header h1 {
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.32);
+  color: #ffffff;
+  text-shadow: 0 4px 18px rgba(7, 31, 59, 0.44);
 }
 
 .single-case-header .single-case-summary {
@@ -1663,7 +1688,7 @@ h1 {
   display: block;
   overflow: hidden;
   border-bottom: 1px solid var(--cp-border);
-  background: var(--cp-panel);
+  background: rgba(7, 31, 59, 0.88);
 }
 
 .detail-page .site-header::after {
@@ -1685,8 +1710,13 @@ h1 {
   z-index: -1;
   inset: -18px;
   background-image:
-    linear-gradient(var(--cp-wallpaper-tint-strong), var(--cp-wallpaper-tint-strong)),
-    url("/assets/hero-public-health.jpeg");
+    linear-gradient(
+      90deg,
+      rgba(24, 119, 242, 0.86),
+      rgba(24, 119, 242, 0.68),
+      rgba(7, 31, 59, 0.9)
+    ),
+    url("/assets/hero-public-health-analyst.jpeg");
   background-position: center 38%;
   background-size: cover;
   filter: blur(10px);
@@ -1706,7 +1736,7 @@ h1 {
   gap: 10px;
   min-width: 0;
   overflow: hidden;
-  color: var(--cp-text-muted);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 15px;
 }
 
@@ -1722,7 +1752,8 @@ h1 {
 }
 
 .case-nav a {
-  color: var(--cp-accent);
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(7, 31, 59, 0.34);
   font-weight: 750;
   text-decoration: none;
   white-space: nowrap;
@@ -2244,10 +2275,10 @@ h1 {
     linear-gradient(
       90deg,
       transparent 0%,
-      rgba(77, 166, 255, 0.06) 26%,
-      rgba(77, 166, 255, 0.32) 48%,
+      rgba(24, 119, 242, 0.06) 26%,
+      rgba(24, 119, 242, 0.32) 48%,
       rgba(245, 183, 0, 0.18) 58%,
-      rgba(77, 166, 255, 0.06) 74%,
+      rgba(24, 119, 242, 0.06) 74%,
       transparent 100%
     );
   transform: translateX(-28%);
@@ -2469,7 +2500,7 @@ h1 {
 }
 
 .dynamic-flow-node:hover {
-  filter: drop-shadow(0 8px 14px rgba(11, 58, 110, 0.16));
+  filter: drop-shadow(0 8px 14px rgba(7, 31, 59, 0.18));
 }
 
 .dynamic-flow-node rect {
@@ -2580,7 +2611,7 @@ h1 {
   18%,
   36% {
     opacity: 1;
-    filter: drop-shadow(0 3px 6px rgba(77, 166, 255, 0.7));
+    filter: drop-shadow(0 3px 6px rgba(24, 119, 242, 0.7));
   }
 }
 
@@ -2832,7 +2863,17 @@ h1 {
   }
 
   .hero-copy {
+    align-items: center;
     padding: 72px max(24px, calc((100vw - 900px) / 2));
+    text-align: center;
+  }
+
+  .hero-intro {
+    text-align: center;
+  }
+
+  .hero .hero-actions {
+    justify-content: center;
   }
 
   .hero-media {
