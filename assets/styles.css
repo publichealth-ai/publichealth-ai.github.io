@@ -233,7 +233,7 @@ button:focus-visible {
   background-image:
     linear-gradient(var(--cp-wallpaper-tint-strong), var(--cp-wallpaper-tint-strong)),
     url("/assets/hero-public-health.jpeg");
-  background-position: center;
+  background-position: center 38%;
   background-size: cover;
   filter: blur(10px);
   transform: scale(1.05);
@@ -621,9 +621,14 @@ button:focus-visible {
   overflow: hidden;
   background-color: var(--cp-bg-elevated);
   background-image:
-    linear-gradient(var(--cp-wallpaper-tint), var(--cp-wallpaper-tint)),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.82) 48%,
+      rgba(255, 255, 255, 0.54) 100%
+    ),
     url("/assets/hero-public-health.jpeg");
-  background-position: center;
+  background-position: center 38%;
   background-repeat: no-repeat;
   background-size: cover;
   height: 50svh;
@@ -1682,7 +1687,7 @@ h1 {
   background-image:
     linear-gradient(var(--cp-wallpaper-tint-strong), var(--cp-wallpaper-tint-strong)),
     url("/assets/hero-public-health.jpeg");
-  background-position: center;
+  background-position: center 38%;
   background-size: cover;
   filter: blur(10px);
   transform: scale(1.05);
