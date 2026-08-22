@@ -646,15 +646,15 @@ button:focus-visible {
   background-position: center 38%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50svh;
-  min-height: 420px;
+  height: auto;
+  min-height: clamp(640px, 68svh, 760px);
 }
 
 .home-hero {
   display: grid;
   grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
-  height: 50svh;
-  min-height: 420px;
+  height: auto;
+  min-height: inherit;
 }
 
 .hero-copy {
@@ -662,7 +662,7 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 36px clamp(24px, 5vw, 88px);
+  padding: clamp(56px, 6vh, 80px) clamp(24px, 5vw, 88px);
   text-align: left;
 }
 
